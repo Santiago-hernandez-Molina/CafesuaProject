@@ -3,10 +3,11 @@ package com.usta.cafesua.entities;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "bags")
-public class Bag {
+public class Bag implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
