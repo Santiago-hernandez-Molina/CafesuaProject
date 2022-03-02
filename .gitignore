@@ -14,6 +14,7 @@ gradle-app.setting
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
 
 *.iml
+*.eml
 
 ## Directory-based project format:
 .idea/
@@ -71,6 +72,8 @@ tmp/
 local.properties
 .settings/
 .loadpath
+
+Cafesua.userlibraries
 
 # Eclipse Core
 .project

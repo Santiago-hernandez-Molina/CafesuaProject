@@ -28,5 +28,4 @@ public class KindOfPlace implements Serializable {
 
     @Column(name ="description")
     private String descriptionKindOfPlace;
-
 }

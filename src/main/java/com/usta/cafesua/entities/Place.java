@@ -31,7 +31,7 @@ public class Place implements Serializable {
 
     @NotNull
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "type")
+    @JoinColumn(name = "type_id", referencedColumnName="id")
     private KindOfPlace kindofPlace;
 
     @NotNull
