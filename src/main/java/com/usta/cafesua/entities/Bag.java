@@ -7,6 +7,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "bags")
 public class Bag {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
