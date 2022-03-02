@@ -7,6 +7,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "bags")
 public class Bag {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,11 +19,11 @@ public class Bag {
     private double actualWeight;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "status_id")
+    @JoinColumn(name = "status_id",referencedColumnName = "id")
     private Status status;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "place_id")
+    @JoinColumn(name = "place_id",referencedColumnName = "id")
     private Place place;
 
 
