@@ -3,10 +3,11 @@ package com.usta.cafesua.models.services;
 import com.usta.cafesua.entities.Status;
 import com.usta.cafesua.models.dao.IStatusDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
+@Service
 public class StatusServiceImplement implements IStatus{
 
     @Autowired
