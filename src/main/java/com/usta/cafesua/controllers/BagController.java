@@ -14,7 +14,7 @@ public class BagController {
 
     @GetMapping("/listBag")
     public String list(Model model) {
-        model.addAttribute("actual_weight", "list Bags");
+        model.addAttribute("title", "list Bags");
         model.addAttribute("bags", iBagService.findAll());
         return "listBag";
     }
