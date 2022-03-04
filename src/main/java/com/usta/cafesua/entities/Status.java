@@ -29,4 +29,27 @@ public class Status implements Serializable {
     @Column(name = "description")
     private String statusDescription;
 
+    public Long getIdStatus() {
+        return idStatus;
+    }
+
+    public void setIdStatus(Long idStatus) {
+        this.idStatus = idStatus;
+    }
+
+    public String getStatusName() {
+        return statusName;
+    }
+
+    public void setStatusName(String statusName) {
+        this.statusName = statusName;
+    }
+
+    public String getStatusDescription() {
+        return statusDescription;
+    }
+
+    public void setStatusDescription(String statusDescription) {
+        this.statusDescription = statusDescription;
+    }
 }

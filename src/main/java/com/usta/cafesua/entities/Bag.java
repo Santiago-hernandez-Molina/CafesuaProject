@@ -27,5 +27,35 @@ public class Bag implements Serializable {
     @JoinColumn(name = "place_id",referencedColumnName = "id")
     private Place place;
 
+    public Long getIdBag() {
+        return idBag;
+    }
 
+    public void setIdBag(Long idBag) {
+        this.idBag = idBag;
+    }
+
+    public double getActualWeight() {
+        return actualWeight;
+    }
+
+    public void setActualWeight(double actualWeight) {
+        this.actualWeight = actualWeight;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public Place getPlace() {
+        return place;
+    }
+
+    public void setPlace(Place place) {
+        this.place = place;
+    }
 }
