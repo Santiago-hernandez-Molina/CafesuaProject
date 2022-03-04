@@ -37,4 +37,37 @@ public class Place implements Serializable {
     @NotNull
     @Column(name = "bag_capacity")
     private Integer bagCapacity;
+
+	public Long getIdPlace() {
+		return idPlace;
+	}
+
+	public void setIdPlace(Long idPlace) {
+		this.idPlace = idPlace;
+	}
+
+	public String getDescriptionPlace() {
+		return descriptionPlace;
+	}
+
+	public void setDescriptionPlace(String descriptionPlace) {
+		this.descriptionPlace = descriptionPlace;
+	}
+
+	public KindOfPlace getKindofPlace() {
+		return kindofPlace;
+	}
+
+	public void setKindofPlace(KindOfPlace kindofPlace) {
+		this.kindofPlace = kindofPlace;
+	}
+
+	public Integer getBagCapacity() {
+		return bagCapacity;
+	}
+
+	public void setBagCapacity(Integer bagCapacity) {
+		this.bagCapacity = bagCapacity;
+	}
+    
 }

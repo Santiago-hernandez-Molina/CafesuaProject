@@ -28,4 +28,28 @@ public class KindOfPlace implements Serializable {
 
     @Column(name ="description")
     private String descriptionKindOfPlace;
+
+	public Long getIdKindOfPlace() {
+		return idKindOfPlace;
+	}
+
+	public void setIdKindOfPlace(Long idKindOfPlace) {
+		this.idKindOfPlace = idKindOfPlace;
+	}
+
+	public String getNameKindOfPlace() {
+		return nameKindOfPlace;
+	}
+
+	public void setNameKindOfPlace(String nameKindOfPlace) {
+		this.nameKindOfPlace = nameKindOfPlace;
+	}
+
+	public String getDescriptionKindOfPlace() {
+		return descriptionKindOfPlace;
+	}
+
+	public void setDescriptionKindOfPlace(String descriptionKindOfPlace) {
+		this.descriptionKindOfPlace = descriptionKindOfPlace;
+	}
 }
