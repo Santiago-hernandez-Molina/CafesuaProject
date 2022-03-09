@@ -16,7 +16,7 @@ public class StatusController {
     @GetMapping("/listStatus")
     public String list(Model model){
         model.addAttribute("title","List Status");
-        model.addAttribute("Status",iStatusService.findAll());
+        model.addAttribute("status",iStatusService.findAll());
         return "listStatus";
     }
 }
