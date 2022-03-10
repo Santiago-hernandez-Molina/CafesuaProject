@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface IBag {
     public List<Bag> findAll();
+    public void saveBag(Bag bag);
 }

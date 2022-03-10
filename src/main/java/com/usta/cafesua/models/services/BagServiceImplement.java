@@ -18,4 +18,10 @@ public class BagServiceImplement implements IBag {
     public List<Bag> findAll(){
         return (List<Bag>) iBagDao.findAll();
     }
+
+    @Override
+    public void saveBag(Bag bag) {
+        iBagDao.save(bag);
+    }
+
 }
