@@ -18,4 +18,9 @@ public class StatusServiceImplement implements IStatus{
     public List<Status> findAll(){
         return (List<Status>) iStatusDao.findAll();
     }
+
+    @Override
+    public void saveStatus(Status status) {
+        iStatusDao.save(status);
+    }
 }

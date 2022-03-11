@@ -1,11 +1,17 @@
 package com.usta.cafesua.controllers;
 
 
+import com.usta.cafesua.entities.Bag;
+import com.usta.cafesua.entities.Status;
 import com.usta.cafesua.models.services.IStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
 
 @Controller
 public class StatusController {
@@ -18,5 +24,20 @@ public class StatusController {
         model.addAttribute("title","List Status");
         model.addAttribute("status",iStatusService.findAll());
         return "listStatus";
+    }
+    @GetMapping(value = "/createStatus")
+    public String addStatus(Model model){
+        model.addAttribute("status",new Status());
+        model.addAttribute("title","Create Status");
+        return "createStatus";
+    }
+
+    @PostMapping(value="/createStatus")
+    public String saveStatus(@Valid Status status, BindingResult result, Model model){
+        if (result.hasErrors()){
+            return "createStatus";
+        }
+        iStatusService.saveStatus(status);
+        return "redirect:/listStatus";
     }
 }

@@ -21,27 +21,22 @@
 </head>
 <body>
 <h1 th:text="${title}"></h1>
-<form th:object="${bag}" th:action="@{/createBag}" method="post">
-    <div class="form-group">
-        <label for="actualWeight">Weight of the bag</label>
-        <input id="actualWeight" type="number" class="form-control" field="*{actualWeight}" name="actualWeight" placeholder="Input de weight of the bag">
-        <small id="actualweighthelp" class="form-text text-muted">Restricciones</small>
 
+<form th:object="${status}" th:action="@{/createStatus}" method="post">
+    <div class="form-group">
+        <label for="statusName">Name of the status</label>
+        <input id="statusName" type="text" class="form-control" field="*{statusName}" name="statusName" placeholder="Input the name of the Status">
+        <small id="statusNamehelp" class="form-text text-muted">Restricciones</small>
         <br/>
 
-        <label for="status">status of the bag</label>
-        <input id="status" type="number" class="form-control" field="*{status}" name="status" placeholder="Input de id of the status">
-        <small id="statushelp" class="form-text text-muted">Restricciones</small>
-
-        <label for="place">place of the bag</label>
-        <input id="place" type="number" class="form-control" field="*{place}" placeholder="Input de id of the place">
-        <small id="placehelp" class="form-text text-muted">Restricciones</small>
+        <label for="statusDescription">Description of the status</label>
+        <input id="statusDescription" type="text" class="form-control" field="*{statusDescription}" name="statusDescription" placeholder="Input de description of the Status">
+        <small id="statusDescriptionhelp" class="form-text text-muted">Restricciones</small>
 
     </div>
     <br/>
     <div class="form-label">
-        <input type="submit" value="SAVE" class="btn-success"/>
-
+        <input type="submit" value="SAVE" class="btn btn-success"/>
     </div>
 </form>
 
