@@ -25,16 +25,17 @@
     <thead class="thead-dark">
     <tr>
         <th>ID</th>
-        <th>Name</th>
         <th>Description</th>
+        <th>KindOfPlace</th>
+        <th>Capacity</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="place:${place}">
         <td th:text="${place.idPlace}"></td>
         <td th:text="${place.placeDescription}"></td>
-        <td th:text="${place.kindOfPlace}"></td>
-        <td th:text="${place.bagcapacity}"></td>
+        <td th:text="${place.kindofPlace}"></td>
+        <td th:text="${place.bagCapacity}"></td>
     </tr>
     </tbody>
 </table>

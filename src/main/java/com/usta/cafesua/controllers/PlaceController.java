@@ -34,7 +34,7 @@ public class PlaceController {
 		return "createPlace";
 	}
 	
-	@PostMapping(value="/createPLace")
+	@PostMapping(value="/createPlace")
 	public String savePlace(@Valid Place place, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			return "createPlace";

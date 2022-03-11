@@ -27,7 +27,7 @@ public class Place implements Serializable {
 
     @NotNull
     @Column(name = "description")
-    private String descriptionPlace;
+    private String placeDescription;
 
     @NotNull
     @ManyToOne(cascade = CascadeType.ALL)
@@ -46,12 +46,12 @@ public class Place implements Serializable {
 		this.idPlace = idPlace;
 	}
 
-	public String getDescriptionPlace() {
-		return descriptionPlace;
+	public String getPlaceDescription() {
+		return placeDescription;
 	}
 
-	public void setDescriptionPlace(String descriptionPlace) {
-		this.descriptionPlace = descriptionPlace;
+	public void setPlaceDescription(String descriptionPlace) {
+		this.placeDescription = descriptionPlace;
 	}
 
 	public KindOfPlace getKindofPlace() {
