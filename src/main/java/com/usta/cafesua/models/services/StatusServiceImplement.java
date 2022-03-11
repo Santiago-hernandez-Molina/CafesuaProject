@@ -5,17 +5,18 @@ import com.usta.cafesua.models.dao.IStatusDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 @Service
-public class StatusServiceImplement implements IStatus{
+public class StatusServiceImplement implements IStatus {
 
     @Autowired
     private IStatusDao iStatusDao;
 
     @Override
     @Transactional(readOnly = true)
-    public List<Status> findAll(){
+    public List<Status> findAll() {
         return (List<Status>) iStatusDao.findAll();
     }
 

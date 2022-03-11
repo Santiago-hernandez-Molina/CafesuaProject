@@ -14,9 +14,9 @@ import com.sun.istack.NotNull;
 @Entity
 @Table(name = "status")
 public class Status implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long idStatus;
