@@ -20,7 +20,7 @@ public class KindOfPlaceController {
 	@GetMapping("/listKindOfPlace")
 	public String list(Model model) {
 		model.addAttribute("title", "list KindOfPlaces");
-		model.addAttribute("kindOfPlaces", iKindOfPlaceService.findAll());
+		model.addAttribute("kindOfPlace", iKindOfPlaceService.findAll());
 		
 		return "listKindOfPlace";
 	}

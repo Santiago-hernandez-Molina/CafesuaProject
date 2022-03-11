@@ -21,7 +21,7 @@ public class PlaceController {
 	@GetMapping("/listPlace")
 	public String list(Model model) {
 		model.addAttribute("title", "list Places");
-		model.addAttribute("places", iPlaceService.findAll());
+		model.addAttribute("place", iPlaceService.findAll());
 		
 		return "listPlace";
 	}
