@@ -30,15 +30,18 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="places:${places}">
-        <td th:text="${places.idPlace}"></td>
-        <td th:text="${places.placeDescription}"></td>
-        <td th:text="${places.kindOfPlace}"></td>
-        <td th:text="${places.bagcapacity}"></td>
+    <tr th:each="place:${place}">
+        <td th:text="${place.idPlace}"></td>
+        <td th:text="${place.placeDescription}"></td>
+        <td th:text="${place.kindOfPlace}"></td>
+        <td th:text="${place.bagcapacity}"></td>
     </tr>
     </tbody>
 </table>
 
+<div class="btn-link">
+	<a href="/createPlace" class="btn btn-success">Create Place</a>
+</div>
 
 </body>
 </html>
