@@ -19,4 +19,9 @@ public class KindOfPlaceServiceImplement implements IKindOfPlace{
 	public List<KindOfPlace> findAll(){
 		return (List<KindOfPlace>) iKindOfPlaceDao.findAll();
 	}
+	
+	@Override
+	public void saveKindOfPlace(KindOfPlace kindOfPlace) {
+		iKindOfPlaceDao.save(kindOfPlace);
+	}
 }

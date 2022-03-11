@@ -19,4 +19,9 @@ public class PlaceServiceImplement implements IPlace {
 	public List<Place> findAll(){
 		return (List<Place>) iPlaceDao.findAll();
 	}
+	
+	@Override
+	public void savePlace(Place place) {
+		iPlaceDao.save(place);
+	}
 }
