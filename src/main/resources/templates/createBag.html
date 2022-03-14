@@ -24,17 +24,20 @@
 <form th:object="${bag}" th:action="@{/createBag}" method="post">
     <div class="form-group">
         <label for="actualWeight">Weight of the bag</label>
-        <input id="actualWeight" type="number" class="form-control" field="*{actualWeight}" name="actualWeight" placeholder="Input de weight of the bag">
+        <input id="actualWeight" type="number" class="form-control" field="*{actualWeight}" name="actualWeight"
+               placeholder="Input de weight of the bag">
         <small id="actualweighthelp" class="form-text text-muted">Restricciones</small>
 
         <br/>
 
         <label for="status">status of the bag</label>
-        <input id="status" type="number" class="form-control" field="*{status}" name="status" placeholder="Input de id of the status">
+        <input id="status" type="number" class="form-control" field="*{status}" name="status"
+               placeholder="Input de id of the status">
         <small id="statushelp" class="form-text text-muted">Restricciones</small>
 
         <label for="place">place of the bag</label>
-        <input id="place" type="number" class="form-control" field="*{place}" name="place" placeholder="Input de id of the place">
+        <input id="place" type="number" class="form-control" field="*{place}" name="place"
+               placeholder="Input de id of the place">
         <small id="placehelp" class="form-text text-muted">Restricciones</small>
 
     </div>
