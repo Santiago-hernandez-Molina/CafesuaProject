@@ -31,25 +31,27 @@ How to map foreign key relations in hibernate - java
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 </head>
 <body>
-<h1 th:text="${title}"></h1>
-<table class="table table-striped table-bordered">
-    <thead class="thead-dark">
-    <tr>
-        <th>ID</th>
-        <th>Actual weight</th>
-        <th>status</th>
-        <th>places</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="bags:${bags}">
-        <td th:text="${bags.idBag}"></td>
-        <td th:text="${bags.actualWeight}"></td>
-        <td th:text="${bags.status}"></td>
-        <td th:text="${bags.place}"></td>
-    </tr>
-    </tbody>
-</table>
+<div class="container">
+	<h1 th:text="${title}"></h1>
+	<table class="table table-hover table-bordered">
+	    <thead class="thead-dark">
+	    <tr>
+	        <th>ID</th>
+	        <th>Actual weight</th>
+	        <th>status</th>
+	        <th>places</th>
+	    </tr>
+	    </thead>
+	    <tbody>
+	    <tr th:each="bags:${bags}">
+	        <td th:text="${bags.idBag}"></td>
+	        <td th:text="${bags.actualWeight}"></td>
+	        <td th:text="${bags.status}"></td>
+	        <td th:text="${bags.place}"></td>
+	    </tr>
+	    </tbody>
+	</table>
+</div>
 <div class="btn">
     <a href="/createBag" class="btn-link">Create Bag</a>
 </div>

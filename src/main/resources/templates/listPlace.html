@@ -20,25 +20,27 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 </head>
 <body>
+<div class="container">
 <h1 th:text="${title}"></h1>
-<table class="table table-striped table-bordered">
-    <thead class="thead-dark">
-    <tr>
-        <th>ID</th>
-        <th>Description</th>
-        <th>KindOfPlace</th>
-        <th>Capacity</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="place:${place}">
-        <td th:text="${place.idPlace}"></td>
-        <td th:text="${place.placeDescription}"></td>
-        <td th:text="${place.kindofPlace}"></td>
-        <td th:text="${place.bagCapacity}"></td>
-    </tr>
-    </tbody>
-</table>
+	<table class="table table-hover table-bordered">
+	    <thead class="thead-dark">
+	    <tr>
+	        <th>ID</th>
+	        <th>Description</th>
+	        <th>KindOfPlace</th>
+	        <th>Capacity</th>
+	    </tr>
+	    </thead>
+	    <tbody>
+	    <tr th:each="place:${place}">
+	        <td th:text="${place.idPlace}"></td>
+	        <td th:text="${place.placeDescription}"></td>
+	        <td th:text="${place.kindofPlace}"></td>
+	        <td th:text="${place.bagCapacity}"></td>
+	    </tr>
+	    </tbody>
+	</table>
+</div>
 
 <div class="btn-link">
 	<a href="/createPlace" class="btn btn-success">Create Place</a>
