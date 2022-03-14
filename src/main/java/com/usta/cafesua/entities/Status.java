@@ -52,4 +52,9 @@ public class Status implements Serializable {
     public void setStatusDescription(String statusDescription) {
         this.statusDescription = statusDescription;
     }
+
+    @Override
+    public String toString() {
+        return statusName;
+    }
 }

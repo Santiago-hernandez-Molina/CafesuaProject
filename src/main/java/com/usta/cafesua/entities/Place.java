@@ -69,5 +69,9 @@ public class Place implements Serializable {
 	public void setBagCapacity(Integer bagCapacity) {
 		this.bagCapacity = bagCapacity;
 	}
-    
+
+	@Override
+	public String toString() {
+		return placeDescription;
+	}
 }

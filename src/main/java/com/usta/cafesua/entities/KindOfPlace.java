@@ -52,4 +52,9 @@ public class KindOfPlace implements Serializable {
 	public void setDescriptionKindOfPlace(String descriptionKindOfPlace) {
 		this.descriptionKindOfPlace = descriptionKindOfPlace;
 	}
+
+	@Override
+	public String toString() {
+		return String.valueOf(idKindOfPlace);
+	}
 }
