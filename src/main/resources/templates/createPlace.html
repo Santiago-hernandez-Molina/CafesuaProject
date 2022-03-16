@@ -24,17 +24,20 @@
 <form th:object="${place}" th:action="@{/createPlace}" method="post">
     <div class="form-group">
         <label for="placeDescription">Description</label>
-        <input id="placeDescription" type="text" class="form-control" field="*{placeDescription}" name="placeDescription" placeholder="Input place description">
+        <input id="placeDescription" type="text" class="form-control" field="*{placeDescription}"
+               name="placeDescription" placeholder="Input place description">
         <small id="placeDescriptionHelp" class="form-text text-muted">Restricciones</small>
 
         <br/>
 
         <label for="kindOfPlace">Kind of Place</label>
-        <input id="kindOfPLace" type="number" class="form-control" field="*{kindofPlace}" name="kindofPlace" placeholder="Type the kindOfPlace id of the Place">
+        <input id="kindOfPLace" type="number" class="form-control" field="*{kindofPlace}" name="kindofPlace"
+               placeholder="Type the kindOfPlace id of the Place">
         <small id="kindOfPlaceHelp" class="form-text text-muted">Restricciones</small>
 
         <label for="bagCapacity">Bag Capacity</label>
-        <input id="bagCapacity" type="number" class="form-control" field="*{bagCapacity}" name="bagCapacity" placeholder="Type bag capacity of the place">
+        <input id="bagCapacity" type="number" class="form-control" field="*{bagCapacity}" name="bagCapacity"
+               placeholder="Type bag capacity of the place">
         <small id="bagCapacityHelp" class="form-text text-muted">Restricciones</small>
 
     </div>
