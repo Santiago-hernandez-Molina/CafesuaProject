@@ -5,6 +5,7 @@ import com.usta.cafesua.models.dao.IBagDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 @Service
@@ -15,7 +16,7 @@ public class BagServiceImplement implements IBag {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Bag> findAll(){
+    public List<Bag> findAll() {
         return (List<Bag>) iBagDao.findAll();
     }
 

@@ -31,13 +31,21 @@
         <br/>
 
         <label for="status">status of the bag</label>
-        <input id="status" type="number" class="form-control" field="*{status}" name="status"
-               placeholder="Input de id of the status">
+        <select id="status" name="status" class="form-control">
+            <option value=""> Seleccione</option>
+            <option th:each="item:${status}"
+                    th:value="${item.idStatus}" th:text="${item.statusName}">
+            </option>
+        </select>
         <small id="statushelp" class="form-text text-muted">Restricciones</small>
 
         <label for="place">place of the bag</label>
-        <input id="place" type="number" class="form-control" field="*{place}" name="place"
-               placeholder="Input de id of the place">
+        <select id="place" name="place" class="form-control">
+            <option value=""> Seleccione</option>
+            <option th:each="item:${places}"
+                    th:value="${item.idPlace}" th:text="${item.placeDescription}">
+            </option>
+        </select>
         <small id="placehelp" class="form-text text-muted">Restricciones</small>
 
     </div>

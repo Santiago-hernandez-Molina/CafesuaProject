@@ -1,7 +1,10 @@
 package com.usta.cafesua.controllers;
 
 import com.usta.cafesua.entities.Bag;
+import com.usta.cafesua.models.dao.IPlaceDao;
 import com.usta.cafesua.models.services.IBag;
+import com.usta.cafesua.models.services.IPlace;
+import com.usta.cafesua.models.services.IStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +23,10 @@ public class BagController {
 
     @Autowired
     private IBag iBagService;
+    @Autowired
+    private IPlace iPlaceService;
+    @Autowired
+    private IStatus iStatusService;
 
     @GetMapping("/listBag")
     public String list(Model model) {
@@ -32,6 +39,8 @@ public class BagController {
     public String addBag(Model model) {
         model.addAttribute("bag", new Bag());
         model.addAttribute("title", "Create Bag");
+        model.addAttribute("places", iPlaceService.findAll());
+        model.addAttribute("status", iStatusService.findAll());
         return "createBag";
     }
 
