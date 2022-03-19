@@ -28,6 +28,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Description</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -35,6 +36,7 @@
             <td th:text="${status.idStatus}"></td>
             <td th:text="${status.statusName}"></td>
             <td th:text="${status.statusDescription}"></td>
+            <td><a class="btn btn-danger btn-xs" th:href="@{/deleteStatus/}  +  ${status.idStatus}" th:text="'delete'" onclick="return confirm('Are you sure about that?');"></a> </td>
         </tr>
         </tbody>
     </table>

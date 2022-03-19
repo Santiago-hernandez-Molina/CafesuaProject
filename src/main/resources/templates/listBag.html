@@ -40,6 +40,7 @@
             <th>Actual weight</th>
             <th>status</th>
             <th>places</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -48,6 +49,7 @@
             <td th:text="${bags.actualWeight}"></td>
             <td th:text="${bags.status}"></td>
             <td th:text="${bags.place}"></td>
+            <td><a class="btn btn-danger btn-xs" th:href="@{/deleteBag/}  +  ${bags.idBag}" th:text="'delete'" onclick="return confirm('Are you sure about that?');"></a> </td>
         </tr>
         </tbody>
     </table>
