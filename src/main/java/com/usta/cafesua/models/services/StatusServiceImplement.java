@@ -24,4 +24,9 @@ public class StatusServiceImplement implements IStatus {
     public void saveStatus(Status status) {
         iStatusDao.save(status);
     }
+
+    @Override
+    public void deleteByIdStatus(Long id) {
+        iStatusDao.deleteById(id);
+    }
 }

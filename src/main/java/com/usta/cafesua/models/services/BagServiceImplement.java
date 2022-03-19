@@ -25,4 +25,11 @@ public class BagServiceImplement implements IBag {
         iBagDao.save(bag);
     }
 
+    @Override
+    @Transactional
+    public void deleteByBagId(Long id) {
+        iBagDao.deleteById(id);
+    }
+
+
 }
