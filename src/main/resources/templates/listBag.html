@@ -39,6 +39,7 @@ How to map foreign key relations in hibernate - java
         <th>Actual weight</th>
         <th>status</th>
         <th>places</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -47,11 +48,12 @@ How to map foreign key relations in hibernate - java
         <td th:text="${bags.actualWeight}"></td>
         <td th:text="${bags.status}"></td>
         <td th:text="${bags.place}"></td>
+        <td><a class="btn btn-danger btn-xs" th:href="@{/deleteBag/}  +  ${bags.idBag}" th:text="'delete'" onclick="return confirm('Are you sure about that?');"></a> </td>
     </tr>
     </tbody>
 </table>
 <div class="btn">
-    <a href="/createBag" class="btn-link">Create Bag</a>
+    <a href="/createBag" class="btn btn-dark" role="button">Create Bag</a>
 </div>
 
 </body>

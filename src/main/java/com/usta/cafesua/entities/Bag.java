@@ -1,9 +1,12 @@
 package com.usta.cafesua.entities;
 
 import com.sun.istack.NotNull;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.nio.MappedByteBuffer;
 
 @Entity
 @Table(name = "bags")
@@ -19,11 +22,13 @@ public class Bag implements Serializable {
     @Column(name = "actual_weight")
     private double actualWeight;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
     @JoinColumn(name = "status_id", referencedColumnName = "id")
     private Status status;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
+    @OnDelete(action =  OnDeleteAction.NO_ACTION)
     @JoinColumn(name = "place_id", referencedColumnName = "id")
     private Place place;
 
