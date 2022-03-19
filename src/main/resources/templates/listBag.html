@@ -9,17 +9,17 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
     <link rel="stylesheet" th:href="@{css/jquery-ui.min.css}"/>
     <link rel="stylesheet"
-Todo
-Vídeos
-Imágenes
-Noticias
-Maps
-Más
-Herramientas
+          Todo
+          Vídeos
+          Imágenes
+          Noticias
+          Maps
+          Más
+          Herramientas
 
-Cerca de 6.350.000 resultados (0,65 segundos)
+          Cerca de 6.350.000 resultados (0,65 segundos)
 
-How to map foreign key relations in hibernate - java
+          How to map foreign key relations in hibernate - java
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous"/>
@@ -31,30 +31,31 @@ How to map foreign key relations in hibernate - java
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 </head>
 <body>
-<h1 th:text="${title}"></h1>
-<table class="table table-striped table-bordered">
-    <thead class="thead-dark">
-    <tr>
-        <th>ID</th>
-        <th>Actual weight</th>
-        <th>status</th>
-        <th>places</th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="bags:${bags}">
-        <td th:text="${bags.idBag}"></td>
-        <td th:text="${bags.actualWeight}"></td>
-        <td th:text="${bags.status}"></td>
-        <td th:text="${bags.place}"></td>
-        <td><a class="btn btn-danger btn-xs" th:href="@{/deleteBag/}  +  ${bags.idBag}" th:text="'delete'" onclick="return confirm('Are you sure about that?');"></a> </td>
-    </tr>
-    </tbody>
-</table>
-<div class="btn">
-    <a href="/createBag" class="btn btn-dark" role="button">Create Bag</a>
+<div class="container">
+    <h1 th:text="${title}"></h1>
+    <table class="table table-hover table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Actual weight</th>
+            <th>status</th>
+            <th>places</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="bags:${bags}">
+            <td th:text="${bags.idBag}"></td>
+            <td th:text="${bags.actualWeight}"></td>
+            <td th:text="${bags.status}"></td>
+            <td th:text="${bags.place}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="btn">
+        <a href="/createBag" class="btn-link">Create Bag</a>
+    </div>
 </div>
+
 
 </body>
 </html>
