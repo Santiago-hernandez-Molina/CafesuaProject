@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+  <title>Hello, world!</title>
+</head>
+
+<body>
+  <div class="mx-auto w-75 my-5">
+    <div class="border rounded p-0 d-flex flex-column">
+
+      <div class="bg-light p-2 rounded-top d-flex flex-row align-items-center border-bottom">
+        <h5 class="my-0 ms-1 me-auto">Persona</h5>
+        <button class="btn btn-primary btn-sm">Submit</button>
+      </div>
+
+      <form class="form-group">
+
+        <input type="text" placeholder="Nombre" class="form-control border-0 shadow-none">
+
+        <hr class="m-0" style="color:#82888f;">
+
+        <input type="text" placeholder="Apellido" class="form-control border-0 shadow-none">
+
+        <hr class="m-0" style="color:#82888f;">
+
+        <input type="number" placeholder="Edad" class="form-control border-0 shadow-none">
+
+        <hr class="m-0" style="color:#82888f;">
+
+        <select title="Pais" class="form-select border-0 shadow-none">
+          <option disabled selected value="">Pais</option>
+        </select>
+
+        <hr class="m-0" style="color:#82888f;">
+
+        <select title="Estadp" class="form-select border-0 shadow-none">
+          <option disabled selected value="">Estado</option>
+        </select>
+
+        <hr class="m-0" style="color:#82888f;">
+
+      </form>
+
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <!--<div class="bg-light p-2 rounded-top d-flex flex-row align-items-center border-bottom">-->
+            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">Data</button>
+          <!--</div>-->
+        </h2>
+
+        <div class="table-responsive text-center accordion-collapse collapse border-top-0" id="flush-collapseOne" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+          <table class="table align-middle accordion-body">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th>Pais</th>
+                <th>Estado</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Harrizon Alexander</td>
+                <td>Soler Galindo</td>
+                <td>18</td>
+                <td>Colombia</td>
+                <td>Boyaca</td>
+                <td>
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i></button>
+                    <button class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i></button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

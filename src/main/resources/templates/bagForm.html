@@ -1,0 +1,20 @@
+<form th:object="$(bag)" th:action="@{/createBag}" method="post" class="form-group">
+	<input id="weight" th:field="*{weight}" type="number" placeholder="Weight"
+		class="form-control border-0 shadow-none">
+
+	<hr class="m-0" style="color: #82888f;">
+
+	<select id="status" th:field="*{statusId}" title="Status" class="form-select border-0 shadow-none">
+		<option disabled selected value="">Status</option>
+		<option th:each="statusOPtion : ${statusList}" th:value="${statusOption.id}" th:text="${statusOption.name}"></option>
+	</select>
+
+	<hr class="m-0" style="color: #82888f;">
+
+	<select id="place" th:field="*{placeId}" title="Place" class="form-select border-0 shadow-none">
+		<option disabled selected value="">Place</option>
+		<option th:each="placeOption : ${placeList}" th:value="${placeOption.id}" th:text="${statusOption.description}"></option>
+	</select>
+
+	<hr class="m-0" style="color: #82888f;">
+</form>
