@@ -24,17 +24,17 @@ public class StatusController {
         model.addAttribute("status",iStatusService.findAll());
         return "listStatus";
     }
-    
+
     @GetMapping(value = "/createStatus")
-    public String addStatus(Model model){
-        model.addAttribute("status",new Status());
-        model.addAttribute("title","Create Status");
+    public String addStatus(Model model) {
+        model.addAttribute("status", new Status());
+        model.addAttribute("title", "Create Status");
         return "createStatus";
     }
 
-    @PostMapping(value="/createStatus")
-    public String saveStatus(@Valid Status status, BindingResult result, Model model){
-        if (result.hasErrors()){
+    @PostMapping(value = "/createStatus")
+    public String saveStatus(@Valid Status status, BindingResult result, Model model) {
+        if (result.hasErrors()) {
             return "createStatus";
         }
         iStatusService.saveStatus(status);

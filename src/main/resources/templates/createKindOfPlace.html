@@ -24,15 +24,13 @@
 <form th:object="${kindOfPlace}" th:action="@{/createKindOfPlace}" method="post">
     <div class="form-group">
         <label for="nameKindOfPlace">Name</label>
-        <input id="nameKindOfPlace" type="text" class="form-control" field="*{nameKindOfPlace}" name="nameKindOfPlace"
-               placeholder="Input kind of place name">
+        <input id="nameKindOfPlace" type="text" class="form-control" field="*{nameKindOfPlace}" name="nameKindOfPlace" placeholder="Input kind of place name">
         <small id="nameKindOfPlaceHelp" class="form-text text-muted">Restricciones</small>
 
         <br/>
 
         <label for="descriptionKindOfPlace">Description</label>
-        <input id="descriptionKindOfPlace" type="text" class="form-control" field="*{descriptionKindOfPlace}"
-               name="descriptionKindOfPlace" placeholder="Type the kindOfPlace description">
+        <input id="descriptionKindOfPlace" type="text" class="form-control" field="*{descriptionKindOfPlace}" name="descriptionKindOfPlace" placeholder="Type the kindOfPlace description">
         <small id="descriptionKindOfPlaceHelp" class="form-text text-muted">Restricciones</small>
     </div>
     <br/>

@@ -8,6 +8,4 @@ public interface IBag {
     public List<Bag> findAll();
 
     public void saveBag(Bag bag);
-
-    public void deleteByBagId(Long id);
 }

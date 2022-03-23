@@ -20,29 +20,27 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 </head>
 <body>
-<div class="container">
-    <h1 th:text="${title}"></h1>
-    <table class="table table-bordered table-hover">
-        <thead class="thead-dark">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="status:${status}">
-            <td th:text="${status.idStatus}"></td>
-            <td th:text="${status.statusName}"></td>
-            <td th:text="${status.statusDescription}"></td>
-            <td><a class="btn btn-danger btn-xs" th:href="@{/deleteStatus/}  +  ${status.idStatus}" th:text="'delete'" onclick="return confirm('Are you sure about that?');"></a> </td>
-        </tr>
-        </tbody>
-    </table>
-    <div class="btn">
-        <a href="/createStatus" class="btn-link">Create Status</a>
-    </div>
-</div>
+	<div class="container">
+		<h1 th:text="${title}"></h1>
+		<table class="table table-bordered table-hover">
+		    <thead class="thead-dark">
+		    <tr>
+		        <th>ID</th>
+		        <th>Name</th>
+		        <th>Description</th>
+		    </tr>
+		    </thead>
+		    <tbody>
+		    <tr th:each="status:${status}">
+		        <td th:text="${status.idStatus}"></td>
+		        <td th:text="${status.statusName}"></td>
+		        <td th:text="${status.statusDescription}"></td>
+		    </tr>
+		    </tbody>
+		</table>
+		<div class="btn">
+		    <a href="/createStatus" class="btn-link">Create Status</a>
+		</div>
+	</div>
 </body>
 </html>

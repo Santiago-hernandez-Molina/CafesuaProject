@@ -25,14 +25,12 @@
 <form th:object="${status}" th:action="@{/createStatus}" method="post">
     <div class="form-group">
         <label for="statusName">Name of the status</label>
-        <input id="statusName" type="text" class="form-control" field="*{statusName}" name="statusName"
-               placeholder="Input the name of the Status">
+        <input id="statusName" type="text" class="form-control" field="*{statusName}" name="statusName" placeholder="Input the name of the Status">
         <small id="statusNamehelp" class="form-text text-muted">Restricciones</small>
         <br/>
 
         <label for="statusDescription">Description of the status</label>
-        <input id="statusDescription" type="text" class="form-control" field="*{statusDescription}"
-               name="statusDescription" placeholder="Input de description of the Status">
+        <input id="statusDescription" type="text" class="form-control" field="*{statusDescription}" name="statusDescription" placeholder="Input de description of the Status">
         <small id="statusDescriptionhelp" class="form-text text-muted">Restricciones</small>
     </div>
     <div class="form-label">

@@ -7,5 +7,4 @@ import java.util.List;
 public interface IStatus {
     public List<Status> findAll();
     public void saveStatus(Status status);
-    public void deleteByIdStatus(Long id);
 }
