@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.List;
 
 
 @Controller
@@ -30,8 +31,10 @@ public class BagController {
 
     @GetMapping("/listBag")
     public String list(Model model) {
+        String [] sections={"Active","Status","Places","Disbale"};
         model.addAttribute("title", "list Bags");
         model.addAttribute("bags", iBagService.findAll());
+        model.addAttribute("sections",sections);
         return "listBag";
     }
 

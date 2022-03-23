@@ -33,6 +33,7 @@
 <body>
 <div class="container">
     <h1 th:text="${title}"></h1>
+    <ul th:replace="fragments/header :: header"></ul>
     <table class="table table-hover table-bordered">
         <thead class="thead-dark">
         <tr>
@@ -54,7 +55,7 @@
         </tbody>
     </table>
     <div class="btn">
-        <a href="/createBag" class="btn-link">Create Bag</a>
+        <a href="/createBag" class="btn-success">Create Bag</a>
     </div>
 </div>
 
