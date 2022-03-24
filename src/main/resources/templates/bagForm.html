@@ -1,19 +1,19 @@
-<form th:object="$(bag)" th:action="@{/createBag}" method="post" class="form-group">
-	<input id="weight" th:field="*{weight}" type="number" placeholder="Weight"
+<form th:fragment="form" th:object="${bag}" th:action="@{/bagForm}" method="post" class="form-group">
+	<input id="weight" field="*{actualWeight}" type="number" placeholder="Weight (Kg)" step="0.1"
 		class="form-control border-0 shadow-none">
 
 	<hr class="m-0" style="color: #82888f;">
 
-	<select id="status" th:field="*{statusId}" title="Status" class="form-select border-0 shadow-none">
+	<select id="status" field="*{status}" title="Status" class="form-select border-0 shadow-none">
 		<option disabled selected value="">Status</option>
-		<option th:each="statusOPtion : ${statusList}" th:value="${statusOption.id}" th:text="${statusOption.name}"></option>
+		<option th:each="statusOption : ${statusList}" th:value="${statusOption}" th:text="${statusOption.statusName}"></option>
 	</select>
 
 	<hr class="m-0" style="color: #82888f;">
 
-	<select id="place" th:field="*{placeId}" title="Place" class="form-select border-0 shadow-none">
+	<select id="place" field="*{place}" title="Place" class="form-select border-0 shadow-none">
 		<option disabled selected value="">Place</option>
-		<option th:each="placeOption : ${placeList}" th:value="${placeOption.id}" th:text="${statusOption.description}"></option>
+		<option th:each="placeOption : ${placeList}" th:value="${placeOption}" th:text="${placeOption.placeDescription}"></option>
 	</select>
 
 	<hr class="m-0" style="color: #82888f;">

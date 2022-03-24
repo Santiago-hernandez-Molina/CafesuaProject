@@ -1,24 +1,24 @@
 <li th:fragment="tab" class="nav-item" role="presentation">
-	<button class="nav-link active" id="bag-tab" data-bs-toggle="tab"
-		data-bs-target="#bag" type="button" aria-controls="bag">Bag</button>
+	<button class="nav-link" id="place-tab" data-bs-toggle="tab"
+		data-bs-target="#place" type="button" aria-controls="place">Place</button>
 </li>
 
 <table th:fragment="table" class="table align-middle accordion-body">
 	<thead>
 		<tr>
 			<th>#</th>
-			<th>Weight (Kg)</th>
-			<th>Status</th>
-			<th>Place</th>
-			<th>Options</th>
+			<th>Description</th>
+			<th>Bag Capacity</th>
+			<th>Kind Of Place</th>
+			<th>Opciones</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr th:each="bag : ${bags}">
-			<td th:text="${bag.idBag"></td>
-			<td th:text="${bag.actualWeight}"></td>
-			<td th:text="${bag.status.idStatus}"></td>
-			<td th:text="${bag.place.idPlace}"></td>
+		<tr th:each="place : ${places}">
+			<td th:text="${place.idPlace}"></td>
+			<td th:text="${place.placeDescription}"></td>
+			<td th:text="${place.bagCapacity}"></td>
+			<td th:text="${place.kindOfPlace.idKindOfPlace}"></td>
 			<td>
 				<div class="btn-group">
 					<button class="btn btn-sm btn-danger">

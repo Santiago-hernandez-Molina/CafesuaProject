@@ -26,20 +26,18 @@ public class PlaceController {
 		return "listPlace";
 	}
 	
-	@GetMapping(value = "/createPlace")
+	@GetMapping(value = "/placeForm")
 	public String addPlace(Model model) {
 		model.addAttribute("place", new Place());
-		model.addAttribute("title", "Create Place");
-		
-		return "createPlace";
+		return "placeForm";
 	}
 	
-	@PostMapping(value="/createPlace")
+	@PostMapping(value="/placeForm")
 	public String savePlace(@Valid Place place, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-			return "createPlace";
+			return "placeForm";
 		}
 		iPlaceService.savePlace(place);
-		return "redirect:/listPlace";
+		return "redirect:/";
 	}
 }
