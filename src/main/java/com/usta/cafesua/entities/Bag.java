@@ -36,11 +36,11 @@ public class Bag implements Serializable {
     @JoinColumn(name = "place_id", referencedColumnName = "id")
     private Place place;
 
-    public Long getIdBag() {
+    public Long getId() {
         return id;
     }
 
-    public void setIdBag(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

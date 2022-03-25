@@ -20,7 +20,6 @@ public class PlaceController {
 	
 	@GetMapping("/listPlace")
 	public String list(Model model) {
-		model.addAttribute("places", iPlaceService.findAll());
 		return "listPlace";
 	}
 	

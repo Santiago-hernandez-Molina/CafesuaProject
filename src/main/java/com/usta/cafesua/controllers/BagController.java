@@ -14,13 +14,11 @@ import com.usta.cafesua.models.services.IBag;
 
 @Controller
 public class BagController {
-
     @Autowired
     private IBag iBagService;
 
     @GetMapping("/bagList")
     public String list(Model model) {
-        model.addAttribute("bags", iBagService.findAll());
         return "bagList";
     }
 

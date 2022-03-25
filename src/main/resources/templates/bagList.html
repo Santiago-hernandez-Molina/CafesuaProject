@@ -13,8 +13,8 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr th:each="bag : ${bags}">
-			<td th:text="${bag.id"></td>
+		<tr th:each="bag : ${bagList}">
+			<td th:text="${bag.id}"></td>
 			<td th:text="${bag.weight}"></td>
 			<td th:text="${bag.status.id}"></td>
 			<td th:text="${bag.place.id}"></td>
