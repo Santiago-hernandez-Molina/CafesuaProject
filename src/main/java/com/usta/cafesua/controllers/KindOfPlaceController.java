@@ -19,7 +19,6 @@ public class KindOfPlaceController {
 	
 	@GetMapping("/listKindOfPlace")
 	public String list(Model model) {
-		model.addAttribute("title", "list KindOfPlaces");
 		model.addAttribute("kindOfPlace", iKindOfPlaceService.findAll());
 		
 		return "listKindOfPlace";
@@ -28,7 +27,6 @@ public class KindOfPlaceController {
 	@GetMapping(value = "/createKindOfPlace")
 	public String addKindOfPlace(Model model) {
 		model.addAttribute("kindOfPlace", new KindOfPlace());
-		model.addAttribute("title", "Create KindOfPlace");
 		
 		return "createKindOfPlace";
 	}
@@ -40,6 +38,6 @@ public class KindOfPlaceController {
 		}
 		
 		iKindOfPlaceService.saveKindOfPlace(kindOfPlace);
-		return "redirect:/listKindOfPlace";
+		return "redirect:/";
 	}
 }

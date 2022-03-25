@@ -23,11 +23,11 @@ public class Place implements Serializable {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long idPlace;
+    private Long id;
 
     @NotNull
     @Column(name = "description")
-    private String placeDescription;
+    private String description;
 
     @NotNull
     @ManyToOne(cascade = CascadeType.ALL)
@@ -38,27 +38,27 @@ public class Place implements Serializable {
     @Column(name = "bag_capacity")
     private Integer bagCapacity;
 
-	public Long getIdPlace() {
-		return idPlace;
+	public Long getId() {
+		return id;
 	}
 
-	public void setIdPlace(Long idPlace) {
-		this.idPlace = idPlace;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public String getPlaceDescription() {
-		return placeDescription;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setPlaceDescription(String descriptionPlace) {
-		this.placeDescription = descriptionPlace;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public KindOfPlace getKindofPlace() {
+	public KindOfPlace getKindOfPlace() {
 		return kindOfPlace;
 	}
 
-	public void setKindofPlace(KindOfPlace kindofPlace) {
+	public void setKindOfPlace(KindOfPlace kindofPlace) {
 		this.kindOfPlace = kindofPlace;
 	}
 
@@ -72,6 +72,6 @@ public class Place implements Serializable {
 
 	@Override
 	public String toString() {
-		return placeDescription;
+		return description;
 	}
 }

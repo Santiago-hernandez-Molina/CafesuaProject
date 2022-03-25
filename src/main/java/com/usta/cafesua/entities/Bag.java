@@ -1,9 +1,18 @@
 package com.usta.cafesua.entities;
 
-import com.sun.istack.NotNull;
-
-import javax.persistence.*;
 import java.io.Serializable;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "bags")
@@ -13,11 +22,11 @@ public class Bag implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long idBag;
+    private Long id;
 
     @NotNull
-    @Column(name = "actual_weight")
-    private double actualWeight;
+    @Column(name = "weight")
+    private double weight;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "status_id", referencedColumnName = "id")
@@ -28,19 +37,19 @@ public class Bag implements Serializable {
     private Place place;
 
     public Long getIdBag() {
-        return idBag;
+        return id;
     }
 
-    public void setIdBag(Long idBag) {
-        this.idBag = idBag;
+    public void setIdBag(Long id) {
+        this.id = id;
     }
 
-    public double getActualWeight() {
-        return actualWeight;
+    public double getWeight() {
+        return weight;
     }
 
-    public void setActualWeight(double actualWeight) {
-        this.actualWeight = actualWeight;
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
 
     public Status getStatus() {

@@ -1,8 +1,8 @@
 <form id="place-form" th:fragment="form" th:object="${place}"
 	th:action="@{/placeForm}" method="post" class="form-group">
 
-	<input id="description" field="*{placeDescription}" type="text"
-		placeholder="Description" name="placeDescription"
+	<input id="description" field="*{description}" type="text"
+		placeholder="Description" name="description"
 		class="form-control border-0 shadow-none">
 
 	<hr class="m-0" style="color: #82888f;">
@@ -17,8 +17,8 @@
 		class="form-select border-0 shadow-none" name="kindOfPlace">
 		<option disabled selected value="">Kind of Place</option>
 		<option th:each="kindOfPlaceOption : ${kindOfPlaceList}"
-			th:value="${kindOfPlaceOption.idKindOfPlace}"
-			th:text="${kindOfPlaceOption.idKindOfPlace}"></option>
+			th:value="${kindOfPlaceOption.id}"
+			th:text="${kindOfPlaceOption.name}"></option>
 	</select>
 
 	<hr class="m-0" style="color: #82888f;">

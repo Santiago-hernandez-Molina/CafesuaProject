@@ -19,42 +19,42 @@ public class Status implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long idStatus;
+    private Long id;
 
     @NotNull
     @Column(name = "name")
-    private String statusName;
+    private String name;
 
     @NotNull
     @Column(name = "description")
-    private String statusDescription;
+    private String description;
 
-    public Long getIdStatus() {
-        return idStatus;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdStatus(Long idStatus) {
-        this.idStatus = idStatus;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getStatusName() {
-        return statusName;
+    public String getName() {
+        return name;
     }
 
-    public void setStatusName(String statusName) {
-        this.statusName = statusName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getStatusDescription() {
-        return statusDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setStatusDescription(String statusDescription) {
-        this.statusDescription = statusDescription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
     public String toString() {
-        return statusName;
+        return name;
     }
 }

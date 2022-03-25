@@ -20,41 +20,41 @@ public class KindOfPlace implements Serializable {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    private Long idKindOfPlace;
+    private Long id;
 
     @NotNull
     @Column(name = "name")
-    private String nameKindOfPlace;
+    private String name;
 
     @Column(name ="description")
-    private String descriptionKindOfPlace;
+    private String description;
 
-	public Long getIdKindOfPlace() {
-		return idKindOfPlace;
+	public Long getId() {
+		return id;
 	}
 
-	public void setIdKindOfPlace(Long idKindOfPlace) {
-		this.idKindOfPlace = idKindOfPlace;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public String getNameKindOfPlace() {
-		return nameKindOfPlace;
+	public String getName() {
+		return name;
 	}
 
-	public void setNameKindOfPlace(String nameKindOfPlace) {
-		this.nameKindOfPlace = nameKindOfPlace;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getDescriptionKindOfPlace() {
-		return descriptionKindOfPlace;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescriptionKindOfPlace(String descriptionKindOfPlace) {
-		this.descriptionKindOfPlace = descriptionKindOfPlace;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	@Override
 	public String toString() {
-		return String.valueOf(idKindOfPlace);
+		return String.valueOf(id);
 	}
 }

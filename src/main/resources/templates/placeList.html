@@ -15,10 +15,10 @@
 	</thead>
 	<tbody>
 		<tr th:each="place : ${places}">
-			<td th:text="${place.idPlace}"></td>
-			<td th:text="${place.placeDescription}"></td>
+			<td th:text="${place.id}"></td>
+			<td th:text="${place.description}"></td>
 			<td th:text="${place.bagCapacity}"></td>
-			<td th:text="${place.kindOfPlace.idKindOfPlace}"></td>
+			<td th:text="${place.kindOfPlace.id}"></td>
 			<td>
 				<div class="btn-group">
 					<button class="btn btn-sm btn-danger">
