@@ -32,7 +32,7 @@ public class Place implements Serializable {
     @NotNull
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "type_id", referencedColumnName="id")
-    private KindOfPlace kindofPlace;
+    private KindOfPlace kindOfPlace;
 
     @NotNull
     @Column(name = "bag_capacity")
@@ -55,11 +55,11 @@ public class Place implements Serializable {
 	}
 
 	public KindOfPlace getKindofPlace() {
-		return kindofPlace;
+		return kindOfPlace;
 	}
 
 	public void setKindofPlace(KindOfPlace kindofPlace) {
-		this.kindofPlace = kindofPlace;
+		this.kindOfPlace = kindofPlace;
 	}
 
 	public Integer getBagCapacity() {

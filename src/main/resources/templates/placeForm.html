@@ -1,18 +1,24 @@
-<form th:fragment="form" th:object="${place}" th:action="@{/placeForm}" method="post" class="form-group">
+<form id="place-form" th:fragment="form" th:object="${place}"
+	th:action="@{/placeForm}" method="post" class="form-group">
 
-	<input id="description" field="*{placeDescription}" type="text" placeholder="Description"
+	<input id="description" field="*{placeDescription}" type="text"
+		placeholder="Description" name="placeDescription"
 		class="form-control border-0 shadow-none">
 
 	<hr class="m-0" style="color: #82888f;">
 
-	<input id="capacity" field="*{bagCapacity}" type="number" placeholder="Capacity (Bags)"
+	<input id="capacity" field="*{bagCapacity}" type="number"
+		placeholder="Capacity (Bags)" name="bagCapacity"
 		class="form-control border-0 shadow-none">
 
 	<hr class="m-0" style="color: #82888f;">
 
-	<select id="kindOfPlace" field="*{kindOfPlace}" title="Kind of Place" class="form-select border-0 shadow-none">
+	<select id="kindOfPlace" field="*{kindOfPlace}" title="kindOfPlace"
+		class="form-select border-0 shadow-none" name="kindOfPlace">
 		<option disabled selected value="">Kind of Place</option>
-		<option th:each="kindOfPlaceOption : ${kindOfPlaceList}" th:value="${kindOfPlaceOption}" th:text="${kindOfPlaceOption.nameKindOfPlace}"></option>
+		<option th:each="kindOfPlaceOption : ${kindOfPlaceList}"
+			th:value="${kindOfPlaceOption.idKindOfPlace}"
+			th:text="${kindOfPlaceOption.idKindOfPlace}"></option>
 	</select>
 
 	<hr class="m-0" style="color: #82888f;">

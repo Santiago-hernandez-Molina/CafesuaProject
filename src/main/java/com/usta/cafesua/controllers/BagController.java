@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.usta.cafesua.entities.Bag;
 import com.usta.cafesua.models.services.IBag;
 
-
 @Controller
 public class BagController {
 
@@ -37,7 +36,7 @@ public class BagController {
             return "bagForm";
         }
         iBagService.saveBag(bag);
-        return "redirect:/fragments/content";
+        return "redirect:/";
     }
 
 }

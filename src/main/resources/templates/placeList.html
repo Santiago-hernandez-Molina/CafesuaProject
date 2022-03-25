@@ -1,7 +1,7 @@
-<li th:fragment="tab" class="nav-item" role="presentation">
-	<button class="nav-link" id="place-tab" data-bs-toggle="tab"
-		data-bs-target="#place" type="button" aria-controls="place">Place</button>
-</li>
+<button th:fragment="tab" class="nav-link" id="nav-place-tab"
+	value="place-form" data-bs-toggle="tab" data-bs-target="#nav-place"
+	type="button" role="tab" aria-controls="nav-place"
+	aria-selected="false">Places</button>
 
 <table th:fragment="table" class="table align-middle accordion-body">
 	<thead>
