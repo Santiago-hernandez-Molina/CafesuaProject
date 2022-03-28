@@ -18,26 +18,23 @@ public class StatusController {
     @Autowired
     private IStatus iStatusService;
 
-    @GetMapping("/listStatus")
+    @GetMapping("/statusList")
     public String list(Model model){
-        model.addAttribute("title","Status");
-        model.addAttribute("status",iStatusService.findAll());
-        return "listStatus";
+        return "statusList";
     }
 
-    @GetMapping(value = "/createStatus")
+    @GetMapping(value = "/statusForm")
     public String addStatus(Model model) {
         model.addAttribute("status", new Status());
-        model.addAttribute("title", "Create Status");
         return "createStatus";
     }
 
-    @PostMapping(value = "/createStatus")
+    @PostMapping(value = "/statusForm")
     public String saveStatus(@Valid Status status, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return "createStatus";
+            return "statusForm";
         }
         iStatusService.saveStatus(status);
-        return "redirect:/listStatus";
+        return "redirect:/";
     }
 }

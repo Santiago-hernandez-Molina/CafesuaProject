@@ -30,6 +30,7 @@ public class HomeController {
 		model.addAttribute("placeList", iPlaceService.findAll());
 		model.addAttribute("kindOfPlaceList", iKindOfPlaceService.findAll());
 		model.addAttribute("bagList", iBagService.findAll());
+		model.addAttribute("statusList",iStatusService.findAll());
 		return "/fragments/content";
 	}
 }
