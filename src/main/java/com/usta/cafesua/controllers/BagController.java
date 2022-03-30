@@ -36,5 +36,4 @@ public class BagController {
         iBagService.saveBag(bag);
         return "redirect:/";
     }
-
 }
