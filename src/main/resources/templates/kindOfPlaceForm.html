@@ -1,0 +1,14 @@
+<form id="kindOfPlace-form" th:fragment="form" th:object="${kindOfPlace}"
+      th:action="@{/kindOfPlaceForm}" method="post" class="form-group">
+
+    <input id="name" field="*{name}" type="text"
+           placeholder="Name" name="name"
+           class="form-control border-0 shadow-none" required>
+
+    <hr class="m-0" style="color: #82888f;">
+
+    <input id="description" field="*{description}" type="text"
+           placeholder="Description" name="description"
+           class="form-control border-0 shadow-none" required>
+    <hr class="m-0" style="color: #82888f;">
+</form>

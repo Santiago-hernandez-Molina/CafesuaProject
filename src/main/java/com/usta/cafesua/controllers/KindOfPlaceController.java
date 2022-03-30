@@ -24,17 +24,17 @@ public class KindOfPlaceController {
 		return "listKindOfPlace";
 	}
 	
-	@GetMapping(value = "/createKindOfPlace")
+	@GetMapping(value = "/kindOfPlaceForm")
 	public String addKindOfPlace(Model model) {
 		model.addAttribute("kindOfPlace", new KindOfPlace());
 		
-		return "createKindOfPlace";
+		return "kindOfPlaceForm";
 	}
 	
-	@PostMapping(value = "/createKindOfPlace")
+	@PostMapping(value = "/kindOfPlaceForm")
 	public String saveKindOfPlace(@Valid KindOfPlace kindOfPlace, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-			return "createKindOfPlace";
+			return "kindOfPlaceForm";
 		}
 		
 		iKindOfPlaceService.saveKindOfPlace(kindOfPlace);

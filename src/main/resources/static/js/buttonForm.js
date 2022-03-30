@@ -1,4 +1,7 @@
-const tabs = [document.getElementById("nav-bag-tab"), document.getElementById("nav-place-tab"), document.getElementById("nav-status-tab")];
+const tabs = [document.getElementById("nav-bag-tab"),
+	document.getElementById("nav-place-tab"),
+	document.getElementById("nav-status-tab"),
+	document.getElementById("nav-kindOfPlace-tab")];
 var tabsLen = tabs.length;
 var submitButton = document.getElementById("submit-button");
 
