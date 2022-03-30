@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.sun.istack.NotNull;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "bags")
@@ -28,11 +30,13 @@ public class Bag implements Serializable {
     @Column(name = "weight")
     private double weight;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
     @JoinColumn(name = "status_id", referencedColumnName = "id")
     private Status status;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
     @JoinColumn(name = "place_id", referencedColumnName = "id")
     private Place place;
 
