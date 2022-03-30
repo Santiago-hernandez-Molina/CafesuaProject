@@ -31,6 +31,7 @@
 						<button th:replace="bagList :: tab"></button>
 						<button th:replace="placeList :: tab"></button>
 						<button th:replace="statusList :: tab"></button>
+						<button th:replace="kindOfPlaceList :: tab"></button>
 					</div>
 				</nav>
 				<p class="my-0">
@@ -85,6 +86,29 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="tab-pane fade" id="nav-kindOfPlace" role="tabpanel"
+					 aria-labelledby="nav-kindOfPlace-tab">
+					<!--Form-->
+					<form th:replace="kindOfPlaceForm :: form"></form>
+
+					<!--Table-->
+					<div class="accordion accordion-flush" id="accordionFlushExample">
+						<h2 class="accordion-header" id="flush-headingOne">
+							<button class="accordion-button collapsed bg-light" type="button"
+									data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+									aria-expanded="false" aria-controls="flush-collapseOne">Data</button>
+						</h2>
+
+						<div
+								class="table-responsive text-center accordion-collapse collapse border-top-0"
+								id="flush-collapseOne" aria-labelledby="flush-headingOne"
+								data-bs-parent="#accordionFlushExample">
+							<table th:replace="kindOfPlaceList :: table"></table>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>
