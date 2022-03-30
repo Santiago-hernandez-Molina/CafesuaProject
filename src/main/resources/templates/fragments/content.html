@@ -40,27 +40,7 @@
 			</div>
 
 			<div class="tab-content">
-				<div class="tab-pane fade show active" id="nav-bag" role="tabpanel"
-					aria-labelledby="nav-bag-tab">
-					<!--Form-->
-					<form th:replace="bagForm :: form"></form>
-
-					<!--Table-->
-					<div class="accordion accordion-flush" id="accordionFlushExample">
-						<h2 class="accordion-header" id="flush-headingOne">
-							<button class="accordion-button collapsed bg-light" type="button"
-								data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-								aria-expanded="false" aria-controls="flush-collapseOne">Data</button>
-						</h2>
-
-						<div
-							class="table-responsive text-center accordion-collapse collapse border-top-0"
-							id="flush-collapseOne" aria-labelledby="flush-headingOne"
-							data-bs-parent="#accordionFlushExample">
-							<table th:replace="bagList :: table"></table>
-						</div>
-					</div>
-				</div>
+				<div th:replace="fragments/paneTemplate :: pane(id='nav-bag', tab='nav-status-bag', isActive='true', form=~{bagForm :: form}, table=~{bagList :: table})"></div>
 
 				<div class="tab-pane fade" id="nav-place" role="tabpanel"
 					aria-labelledby="nav-place-tab">
