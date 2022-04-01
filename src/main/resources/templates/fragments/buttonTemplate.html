@@ -1,0 +1,7 @@
+<button th:fragment="button(id, value, text, dataTarget, isActive)"
+	th:class="${isActive} ? 'nav-link active' : 'nav-link'"
+	th:aria-selected="${isActive} ? 'true' : 'false'" th:text="${text}"
+	th:id="${id}" th:value="${value}" th:data-bs-target="${'#' + dataTarget}"
+	th:aria-controls="${dataTarget}" type="button" data-bs-toggle="tab"
+	role="tab">
+</button>

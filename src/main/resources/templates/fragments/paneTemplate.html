@@ -1,5 +1,5 @@
 <div th:fragment="pane(id, tab, isActive, form, table)" th:id="${id}"
-	th:class="${isActive} ? 'show active' : ''" class="tab-pane fade"
+	th:class="${isActive} ? 'tab-pane fade show active' : 'tab-pane fade'"
 	role="tabpanel" th:aria-labelledby="${tab}">
 
 	<form th:replace="${form}"></form>
@@ -18,7 +18,7 @@
 			data-bs-parent="#accordionFlushExample">
 
 			<table th:replace="${table}"></table>
-			
+
 		</div>
 	</div>
 </div>

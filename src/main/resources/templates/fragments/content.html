@@ -28,7 +28,7 @@
 				class="bg-light p-2 rounded-top d-flex flex-row align-items-center border-bottom">
 				<nav class="my-0 ms-1 me-auto" role="tablist">
 					<div class="nav nav-tabs" id="nav-tab" role="tablist">
-						<button th:replace="bagList :: tab"></button>
+						<button th:replace="fragments/buttonTemplate :: button(id='nav-bag-tab', value='bag-form', text='Bags', dataTarget='nav-bag', isActive='true')"></button>
 						<button th:replace="placeList :: tab"></button>
 						<button th:replace="statusList :: tab"></button>
 						<button th:replace="kindOfPlaceList :: tab"></button>
@@ -41,7 +41,8 @@
 			</div>
 
 			<div class="tab-content">
-				<div th:replace="fragments/paneTemplate :: pane(id='nav-bag', tab='nav-status-bag', isActive='true', form=~{bagForm :: form}, table=~{bagList :: table})"></div>
+				<div th:replace="fragments/paneTemplate :: 
+					pane(id='nav-bag', tab='nav-status-bag', isActive='true', form=~{bagForm :: form}, table=~{bagList :: table})"></div>
 
 				<div class="tab-pane fade" id="nav-place" role="tabpanel"
 					aria-labelledby="nav-place-tab">
@@ -88,7 +89,7 @@
 				</div>
 
 				<div class="tab-pane fade" id="nav-kindOfPlace" role="tabpanel"
-					 aria-labelledby="nav-kindOfPlace-tab">
+					aria-labelledby="nav-kindOfPlace-tab">
 					<!--Form-->
 					<form th:replace="kindOfPlaceForm :: form"></form>
 
@@ -96,14 +97,14 @@
 					<div class="accordion accordion-flush" id="accordionFlushExample">
 						<h2 class="accordion-header" id="flush-headingOne">
 							<button class="accordion-button collapsed bg-light" type="button"
-									data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-									aria-expanded="false" aria-controls="flush-collapseOne">Data</button>
+								data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+								aria-expanded="false" aria-controls="flush-collapseOne">Data</button>
 						</h2>
 
 						<div
-								class="table-responsive text-center accordion-collapse collapse border-top-0"
-								id="flush-collapseOne" aria-labelledby="flush-headingOne"
-								data-bs-parent="#accordionFlushExample">
+							class="table-responsive text-center accordion-collapse collapse border-top-0"
+							id="flush-collapseOne" aria-labelledby="flush-headingOne"
+							data-bs-parent="#accordionFlushExample">
 							<table th:replace="kindOfPlaceList :: table"></table>
 						</div>
 					</div>
