@@ -10,4 +10,6 @@ public interface IBag {
     public void saveBag(Bag bag);
 
     public void deleteBag(Long id);
+    
+    public Bag findById(Long id);
 }

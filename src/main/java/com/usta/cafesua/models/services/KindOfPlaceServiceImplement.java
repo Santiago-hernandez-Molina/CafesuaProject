@@ -24,4 +24,14 @@ public class KindOfPlaceServiceImplement implements IKindOfPlace{
 	public void saveKindOfPlace(KindOfPlace kindOfPlace) {
 		iKindOfPlaceDao.save(kindOfPlace);
 	}
+	
+	@Override
+	public void deleteKindOfPlace(Long id) {
+		iKindOfPlaceDao.deleteById(id);
+	}
+	
+	@Override
+	public KindOfPlace findById(Long id) {
+		return iKindOfPlaceDao.findById(id).orElse(null);
+	}
 }

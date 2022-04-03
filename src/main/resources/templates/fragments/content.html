@@ -28,10 +28,14 @@
 				class="bg-light p-2 rounded-top d-flex flex-row align-items-center border-bottom">
 				<nav class="my-0 ms-1 me-auto" role="tablist">
 					<div class="nav nav-tabs" id="nav-tab" role="tablist">
-						<button th:replace="fragments/buttonTemplate :: button(id='nav-bag-tab', value='bag-form', text='Bags', dataTarget='nav-bag', isActive='true')"></button>
-						<button th:replace="placeList :: tab"></button>
-						<button th:replace="statusList :: tab"></button>
-						<button th:replace="kindOfPlaceList :: tab"></button>
+						<button th:replace="fragments/buttonTemplate :: 
+							button(id='nav-bag-tab', value='bag-form', text='Bags', dataTarget='nav-bag', isActive='true')"></button>
+						<button th:replace="fragments/buttonTemplate :: 
+							button(id='nav-place-tab', value='place-form', text='Places', dataTarget='nav-place', isActive='false')"></button>
+						<button th:replace="fragments/buttonTemplate :: 
+							button(id='nav-status-tab', value='status-form', text='Status', dataTarget='nav-status', isActive='false')"></button>
+						<button th:replace="fragments/buttonTemplate :: 
+							button(id='nav-kindOfPlace-tab', value='kindOfPlace-form', text='Kind of Place', dataTarget='nav-kindOfPlace', isActive='false')"></button>
 					</div>
 				</nav>
 				<p class="my-0">
@@ -42,74 +46,24 @@
 
 			<div class="tab-content">
 				<div th:replace="fragments/paneTemplate :: 
-					pane(id='nav-bag', tab='nav-status-bag', isActive='true', form=~{bagForm :: form}, table=~{bagList :: table})"></div>
+					pane(id='nav-bag', tab='nav-bag-tab', isActive='true', 
+					form=~{bagTemplate :: form(id='bag-form', action='bagTemplate/', weight=null, status=null, place=null)}, 
+					table=~{bagTemplate :: table})"></div>
 
-				<div class="tab-pane fade" id="nav-place" role="tabpanel"
-					aria-labelledby="nav-place-tab">
-					<!--Form-->
-					<form th:replace="placeForm :: form"></form>
+				<div th:replace="fragments/paneTemplate :: 
+					pane(id='nav-place', tab='nav-place-tab', isActive='false', 
+					form=~{placeTemplate :: form(id='place-form', action='placeTemplate/', description=null, bagCapacity=null, kindOfPlace=null)}, 
+					table=~{placeTemplate :: table})"></div>
 
-					<!--Table-->
-					<div class="accordion accordion-flush" id="accordionFlushExample">
-						<h2 class="accordion-header" id="flush-headingOne">
-							<button class="accordion-button collapsed bg-light" type="button"
-								data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-								aria-expanded="false" aria-controls="flush-collapseOne">Data</button>
-						</h2>
+				<div th:replace="fragments/paneTemplate :: 
+					pane(id='nav-status', tab='nav-status-tab', isActive='false', 
+					form=~{statusTemplate :: form(id='status-form', action='statusTemplate/', name=null, description=null)}, 
+					table=~{statusTemplate :: table})"></div>
 
-						<div
-							class="table-responsive text-center accordion-collapse collapse border-top-0"
-							id="flush-collapseOne" aria-labelledby="flush-headingOne"
-							data-bs-parent="#accordionFlushExample">
-							<table th:replace="placeList :: table"></table>
-						</div>
-					</div>
-				</div>
-
-				<div class="tab-pane fade" id="nav-status" role="tabpanel"
-					aria-labelledby="nav-status-tab">
-					<!--Form-->
-					<form th:replace="statusForm :: form"></form>
-
-					<!--Table-->
-					<div class="accordion accordion-flush" id="accordionFlushExample">
-						<h2 class="accordion-header" id="flush-headingOne">
-							<button class="accordion-button collapsed bg-light" type="button"
-								data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-								aria-expanded="false" aria-controls="flush-collapseOne">Data</button>
-						</h2>
-
-						<div
-							class="table-responsive text-center accordion-collapse collapse border-top-0"
-							id="flush-collapseOne" aria-labelledby="flush-headingOne"
-							data-bs-parent="#accordionFlushExample">
-							<table th:replace="statusList :: table"></table>
-						</div>
-					</div>
-				</div>
-
-				<div class="tab-pane fade" id="nav-kindOfPlace" role="tabpanel"
-					aria-labelledby="nav-kindOfPlace-tab">
-					<!--Form-->
-					<form th:replace="kindOfPlaceForm :: form"></form>
-
-					<!--Table-->
-					<div class="accordion accordion-flush" id="accordionFlushExample">
-						<h2 class="accordion-header" id="flush-headingOne">
-							<button class="accordion-button collapsed bg-light" type="button"
-								data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-								aria-expanded="false" aria-controls="flush-collapseOne">Data</button>
-						</h2>
-
-						<div
-							class="table-responsive text-center accordion-collapse collapse border-top-0"
-							id="flush-collapseOne" aria-labelledby="flush-headingOne"
-							data-bs-parent="#accordionFlushExample">
-							<table th:replace="kindOfPlaceList :: table"></table>
-						</div>
-					</div>
-				</div>
-
+				<div th:replace="fragments/paneTemplate :: 
+					pane(id='nav-kindOfPlace', tab='nav-kindOfPlace-tab', isActive='false', 
+					form=~{kindOfPlaceTemplate :: form(id='kindOfPlace-form', action='kindOfPlaceTemplate/', name=null, description=null)}, 
+					table=~{kindOfPlaceTemplate :: table})"></div>
 			</div>
 		</div>
 	</div>

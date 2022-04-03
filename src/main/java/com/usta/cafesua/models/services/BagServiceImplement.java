@@ -30,4 +30,9 @@ public class BagServiceImplement implements IBag {
     public void deleteBag(Long id) {
         iBagDao.deleteById(id);
     }
+    
+    @Override
+    public Bag findById(Long id) {
+    	return iBagDao.findById(id).orElse(null);
+    }
 }

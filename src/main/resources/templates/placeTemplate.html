@@ -1,0 +1,74 @@
+<form th:id="${id}"
+	th:fragment="form(id, action, description, bagCapacity, kindOfPlace)"
+	th:object="${place}" th:action="@{${action}}" method="post"
+	class="form-group">
+
+	<input id="description" field="*{description}" type="text"
+		th:value="${description != null} ? ${description} : ''"
+		placeholder="Description" name="description"
+		class="form-control border-0 shadow-none" required>
+
+	<hr class="m-0" style="color: #82888f;">
+
+	<input id="capacity" field="*{bagCapacity}" type="number"
+		th:value="${bagCapacity != null} ? ${bagCapacity} : ''"
+		placeholder="Capacity (Bags)" name="bagCapacity"
+		class="form-control border-0 shadow-none" required>
+
+	<hr class="m-0" style="color: #82888f;">
+
+	<select id="kindOfPlace" field="*{kindOfPlace}" title="kindOfPlace"
+		class="form-select border-0 shadow-none" name="kindOfPlace">
+		<option th:if="${kindOfPlace == null}" disabled selected value="">Kind
+			of Place</option>
+		<option th:each="kindOfPlaceOption : ${kindOfPlaceList}"
+			th:selected="(${kindOfPlaceOption.id} == ${kindOfPlace})"
+			th:value="${kindOfPlaceOption.id}"
+			th:text="${kindOfPlaceOption.name}"></option>
+	</select>
+</form>
+
+<table th:fragment="table" class="table align-middle accordion-body">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Description</th>
+			<th>Bag Capacity</th>
+			<th>Kind Of Place</th>
+			<th>Opciones</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="place : ${placeList}">
+			<td th:text="${place.id}"></td>
+			<td th:text="${place.description}"></td>
+			<td th:text="${place.bagCapacity}"></td>
+			<td th:text="${place.kindOfPlace.id}"></td>
+			<td>
+				<div class="btn-group">
+					<a class="btn btn-sm btn-danger"
+						th:href="@{/deletePlace/} + ${place.id}"> <i
+						class="bi bi-trash-fill"></i>
+					</a>
+					<button type="button" data-bs-toggle="modal"
+						th:data-bs-target="${'#modal-place-' + place.id}"
+						class="btn btn-sm btn-success">
+						<i class="bi bi-pencil-square"></i>
+					</button>
+				</div>
+			</td>
+
+			<div th:replace="/fragments/modalTemplate :: 
+				modal(
+					entity='place', 
+					id=${place.id}, 
+					form=~{placeTemplate :: form(
+						id=${'form-place-' + place.id}, 
+						action=${'placeTemplate/' + place.id}, 
+						description=${place.description}, 
+						bagCapacity=${place.bagCapacity}, 
+						kindOfPlace=${place.kindOfPlace.id})},
+					formId=${'form-place-' + place.id})"></div>
+		</tr>
+	</tbody>
+</table>

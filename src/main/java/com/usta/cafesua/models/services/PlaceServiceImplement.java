@@ -24,4 +24,14 @@ public class PlaceServiceImplement implements IPlace {
 	public void savePlace(Place place) {
 		iPlaceDao.save(place);
 	}
+	
+	@Override
+	public void deletePlace(Long id) {
+		iPlaceDao.deleteById(id);
+	}
+	
+	@Override
+	public Place findById(Long id) {
+		return iPlaceDao.findById(id).orElse(null);
+	}
 }

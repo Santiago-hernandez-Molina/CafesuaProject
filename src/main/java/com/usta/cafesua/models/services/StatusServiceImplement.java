@@ -1,12 +1,13 @@
 package com.usta.cafesua.models.services;
 
-import com.usta.cafesua.entities.Status;
-import com.usta.cafesua.models.dao.IStatusDao;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import com.usta.cafesua.entities.Status;
+import com.usta.cafesua.models.dao.IStatusDao;
 
 @Service
 public class StatusServiceImplement implements IStatus {
@@ -23,5 +24,15 @@ public class StatusServiceImplement implements IStatus {
     @Override
     public void saveStatus(Status status) {
         iStatusDao.save(status);
+    }
+    
+    @Override
+    public void deleteStatus(Long id) {
+    	iStatusDao.deleteById(id);
+    }
+    
+    @Override
+    public Status findById(Long id) {
+    	return iStatusDao.findById(id).orElse(null);
     }
 }

@@ -17,30 +17,42 @@ import com.usta.cafesua.models.services.IBag;
 
 @Controller
 public class BagController {
-    @Autowired
-    private IBag iBagService;
+	@Autowired
+	private IBag iBagService;
 
-    @GetMapping("/bagList")
-    public String list(Model model) {
-        return "bagList";
-    }
+	@GetMapping("/bagList")
+	public String list(Model model) {
+		return "bagList";
+	}
 
-    @GetMapping(value = "/bagForm")
-    public String addBag(Model model) {
-        model.addAttribute("bag", new Bag());
-        return "bagForm";
-    }
+	@GetMapping(value = "/bagTemplate")
+	public String addBag(Model model) {
+		model.addAttribute("bag", new Bag());
+		return "bagForm";
+	}
 
-    @PostMapping(value = "/bagForm")
-    public String saveBag(@Valid Bag bag, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "bagForm";
-        }
-        iBagService.saveBag(bag);
-        return "redirect:/";
-    }
-    
-    @RequestMapping(value="/deleteBag/{id}")
+	@PostMapping(value = "/bagTemplate")
+	public String saveBag(@Valid Bag bag, BindingResult result, Model model) {
+		if (result.hasErrors()) {
+			return "bagForm";
+		}
+		iBagService.saveBag(bag);
+		return "redirect:/";
+	}
+
+	@PostMapping(value="/bagTemplate/{id}")
+    public String updateBag(@PathVariable(value="id") Long id, @Valid Bag bag, BindingResult result, Model model) {
+		if (iBagService.findById(id) != null) {
+			bag.setId(id);
+	    	iBagService.saveBag(bag);
+	    	
+	    	return "redirect:/";
+		} else {
+			return "bagForm";
+		}
+	}
+
+	@RequestMapping(value="/deleteBag/{id}")
     public String deleteBag(@PathVariable(value ="id") Long id , RedirectAttributes flash){
 
         if (id>0){
