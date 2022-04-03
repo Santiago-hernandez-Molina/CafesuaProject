@@ -21,11 +21,6 @@ public class KindOfPlaceController {
 	@Autowired
 	private IKindOfPlace iKindOfPlaceService;
 	
-	@GetMapping("/listKindOfPlace")
-	public String list(Model model) {
-		return "listKindOfPlace";
-	}
-	
 	@GetMapping(value = "/kindOfPlaceTemplate")
 	public String addKindOfPlace(Model model) {
 		model.addAttribute("kindOfPlace", new KindOfPlace());

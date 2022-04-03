@@ -21,11 +21,6 @@ public class StatusController {
     @Autowired
     private IStatus iStatusService;
 
-    @GetMapping("/statusList")
-    public String list(Model model){
-        return "statusList";
-    }
-
     @GetMapping(value = "/statusTemplate")
     public String addStatus(Model model) {
         model.addAttribute("status", new Status());

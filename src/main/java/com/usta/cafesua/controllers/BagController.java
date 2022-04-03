@@ -20,11 +20,6 @@ public class BagController {
 	@Autowired
 	private IBag iBagService;
 
-	@GetMapping("/bagList")
-	public String list(Model model) {
-		return "bagList";
-	}
-
 	@GetMapping(value = "/bagTemplate")
 	public String addBag(Model model) {
 		model.addAttribute("bag", new Bag());

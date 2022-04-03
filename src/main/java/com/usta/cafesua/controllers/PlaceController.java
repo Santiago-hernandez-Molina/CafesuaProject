@@ -21,11 +21,6 @@ public class PlaceController {
 	@Autowired
 	private IPlace iPlaceService;
 	
-	@GetMapping("/listPlace")
-	public String list(Model model) {
-		return "listPlace";
-	}
-	
 	@GetMapping(value = "/placeTemplate")
 	public String addPlace(Model model) {
 		model.addAttribute("place", new Place());
