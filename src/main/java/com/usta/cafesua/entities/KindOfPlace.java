@@ -10,10 +10,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.sun.istack.NotNull;
+import lombok.*;
 
 @Entity
 @Table(name= "kind_of_places")
-
+@Getter
+@Setter
+@ToString(onlyExplicitlyIncluded = true,includeFieldNames = false)
+@NoArgsConstructor
+@AllArgsConstructor
 public class KindOfPlace implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -22,6 +27,7 @@ public class KindOfPlace implements Serializable {
     @Column(name="id")
     private Long id;
 
+	@ToString.Include
     @NotNull
     @Column(name = "name")
     private String name;
@@ -29,32 +35,4 @@ public class KindOfPlace implements Serializable {
     @Column(name ="description")
     private String description;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	@Override
-	public String toString() {
-		return String.valueOf(id);
-	}
 }

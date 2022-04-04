@@ -1,22 +1,19 @@
 package com.usta.cafesua.entities;
 
-import java.io.Serializable;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
 import com.sun.istack.NotNull;
+import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import javax.persistence.*;
+import java.io.Serializable;
+
 @Entity
+@Getter
+@Setter
+@ToString(onlyExplicitlyIncluded = true,includeFieldNames = false)
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "bags")
 public class Bag implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -30,45 +27,16 @@ public class Bag implements Serializable {
     @Column(name = "weight")
     private double weight;
 
+    @ToString.Include
     @ManyToOne()
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     @JoinColumn(name = "status_id", referencedColumnName = "id")
     private Status status;
 
+    @ToString.Include
     @ManyToOne()
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     @JoinColumn(name = "place_id", referencedColumnName = "id")
     private Place place;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public Place getPlace() {
-        return place;
-    }
-
-    public void setPlace(Place place) {
-        this.place = place;
-    }
 }
