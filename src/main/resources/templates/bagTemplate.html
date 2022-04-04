@@ -1,7 +1,7 @@
-<form th:id="${id}" th:fragment="form(id, action, weight, status, place)"
-	th:object="${bag}" th:action="@{${action}}" method="post"
-	class="form-group">
+<form th:fragment="form(id, weight, status, place)" th:replace="fragments/formTemplate.html :: form(entity='bag', id=${id}, fields=~{bagTemplate :: fields})">
+</form>
 
+<th:block th:fragment="fields">
 	<input id="weight" field="*{weight}" type="number" th:value="${weight != null} ? ${weight} : ''"
 		placeholder="Weight (Kg)" step="0.1" name="weight"
 		class="form-control border-0 shadow-none" required>
@@ -23,7 +23,7 @@
 		<option th:each="placeOption : ${placeList}" th:selected="(${placeOption.id} == ${place})"
 			th:value="${placeOption.id}" th:text="${placeOption.description}"></option>
 	</select>
-</form>
+</th:block>
 
 <table th:fragment="table" class="table align-middle accordion-body">
 	<thead>
@@ -57,12 +57,13 @@
 					entity='bag', 
 					id=${bag.id}, 
 					form=~{bagTemplate :: form(
-						id=${'form-bag-' + bag.id}, 
-						action=${'bagTemplate/' + bag.id}, 
+						id=${bag.id}, 
 						weight=${bag.weight}, 
 						status=${bag.status.id}, 
-						place=${bag.place.id})},
-					formId=${'form-bag-' + bag.id})"></div>
+						place=${bag.place.id}
+                    )}
+                )">
+            </div>
 		</tr>
 	</tbody>
 </table>

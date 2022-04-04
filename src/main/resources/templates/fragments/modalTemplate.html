@@ -1,4 +1,4 @@
-<div th:fragment="modal(entity, id, form, formId)"
+<div th:fragment="modal(entity, id, form)"
 	th:id="${'modal-' + entity + '-' + id}" class="modal fade" tabindex="-1"
 	role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered" role="document">
@@ -17,7 +17,7 @@
 				<button type="button" class="btn btn-secondary btn-sm"
 					data-bs-dismiss="modal">Close</button>
 				<p>
-					<input type="submit" value="Save Changes" class="btn btn-primary btn-sm" th:form="${formId}">
+					<input type="submit" value="Save Changes" class="btn btn-primary btn-sm" th:form="${entity + '-form-' + id}">
 				</p>
 			</div>
 		</div>

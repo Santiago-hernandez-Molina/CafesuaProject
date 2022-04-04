@@ -1,8 +1,7 @@
-<form th:id="${id}"
-	th:fragment="form(id, action, name, description)"
-	th:object="${kindOfPlace}" th:action="@{${action}}"
-	method="post" class="form-group">
+<form th:fragment="form(id, name, description)" th:replace="fragments/formTemplate.html :: form(entity='kindOfPlace', id=${id}, fields=~{kindOfPlaceTemplate :: fields})">
+</form>
 
+<th:block th:fragment="fields">
 	<input id="name" field="*{name}" type="text"
 		th:value="${name != null} ? ${name} : ''" placeholder="Name"
 		name="name" class="form-control border-0 shadow-none" required>
@@ -13,7 +12,7 @@
 		th:value="${description != null} ? ${description} : ''"
 		placeholder="Description" name="description"
 		class="form-control border-0 shadow-none" required>
-</form>
+</th:block>
 
 <table th:fragment="table" class="table align-middle accordion-body">
 	<thead>
@@ -46,11 +45,12 @@
 					entity='kindOfPlace', 
 					id=${kindOfPlace.id}, 
 					form=~{kindOfPlaceTemplate :: form(
-						id=${'form-kindOfPlace-' + kindOfPlace.id}, 
-						action=${'kindOfPlaceTemplate/' + kindOfPlace.id}, 
+						id=${kindOfPlace.id}, 
 						name=${kindOfPlace.name},
-						description=${kindOfPlace.description})},
-					formId=${'form-kindOfPlace-' + kindOfPlace.id})"></div>
+						description=${kindOfPlace.description}
+                    )}
+                )">
+            </div>
 		</tr>
 	</tbody>
 </table>

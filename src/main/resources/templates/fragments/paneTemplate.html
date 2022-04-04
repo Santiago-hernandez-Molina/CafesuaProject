@@ -1,6 +1,6 @@
-<div th:fragment="pane(id, tab, isActive, form, table)" th:id="${id}"
+<div th:fragment="pane(entity, isActive, form, table)" th:id="${'nav-' + entity}"
 	th:class="${isActive} ? 'tab-pane fade show active' : 'tab-pane fade'"
-	role="tabpanel" th:aria-labelledby="${tab}">
+	role="tabpanel" th:aria-labelledby="${'nav-' + entity + '-tab'}">
 
 	<form th:replace="${form}"></form>
 
@@ -17,7 +17,7 @@
 			id="flush-collapseOne" aria-labelledby="flush-headingOne"
 			data-bs-parent="#accordionFlushExample">
 
-			<table th:replace="${table}"></table>
+            <table th:replace="~{${entity + 'Template'} :: table}"></table>
 		</div>
 	</div>
 </div>

@@ -1,0 +1,5 @@
+<form th:id="${id == null} ? ${entity + '-form'} : ${entity + '-form-' + id}" th:fragment="form(entity, id, fields)"
+      th:action="${id == null} ? @{${entity + 'Template/'}} : @{${entity + 'Template/' + id}}" th:object="${entity}" 
+	method="post" class="form-group">
+    <div th:replace="${fields}"></div>
+</form>
