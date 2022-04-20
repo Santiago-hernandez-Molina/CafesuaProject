@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -18,7 +19,11 @@ import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "places")
-
+@Setter
+@Getter
+@ToString(includeFieldNames = false,onlyExplicitlyIncluded = true)
+@NoArgsConstructor
+@AllArgsConstructor
 public class Place implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -27,6 +32,7 @@ public class Place implements Serializable {
     @Column(name = "id")
     private Long id;
 
+	@ToString.Include
     @NotNull
     @Column(name = "description")
     private String description;
@@ -40,40 +46,4 @@ public class Place implements Serializable {
     @Column(name = "bag_capacity")
     private Integer bagCapacity;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public KindOfPlace getKindOfPlace() {
-		return kindOfPlace;
-	}
-
-	public void setKindOfPlace(KindOfPlace kindofPlace) {
-		this.kindOfPlace = kindofPlace;
-	}
-
-	public Integer getBagCapacity() {
-		return bagCapacity;
-	}
-
-	public void setBagCapacity(Integer bagCapacity) {
-		this.bagCapacity = bagCapacity;
-	}
-
-	@Override
-	public String toString() {
-		return description;
-	}
 }
