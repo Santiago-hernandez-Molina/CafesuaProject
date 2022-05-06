@@ -1,38 +1,54 @@
 package com.usta.cafesua;
 
 import com.usta.cafesua.models.services.UserServiceImplement;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
-@RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private UserServiceImplement userServiceImplement;
+    private final UserServiceImplement userServiceImplement;
 
-    private BCryptPasswordEncoder bcrypt;
+    private final BCryptPasswordEncoder bcrypt;
 
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
+    public SecurityConfig(UserServiceImplement userServiceImplement,BCryptPasswordEncoder bcrypt) {
+        this.userServiceImplement = userServiceImplement;
+        this.bcrypt=bcrypt;
     }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth)
         throws Exception{
         auth.userDetailsService(userServiceImplement).passwordEncoder(bcrypt);
     }
-    /*@Override
+
+    @Override
     protected void configure(HttpSecurity httpSecurity)throws Exception{
         httpSecurity
-                .authorizeRequests().antMatchers("/").permitAll();
+                .authorizeRequests().antMatchers("/").hasRole("ADMIN")
+                .antMatchers("/resources/", "/webjars/","/assets/")
+                .permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/home",true)
+                .failureUrl("/login?error")
+                .permitAll()
+                .and()
+                .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login?logout")
+                .permitAll()
+                .and()
+                .exceptionHandling()
+                .accessDeniedPage("/accessDenied");
     }
-*/
+
 }

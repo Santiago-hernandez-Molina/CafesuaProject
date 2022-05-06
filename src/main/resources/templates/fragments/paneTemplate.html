@@ -1,4 +1,4 @@
-<div th:fragment="pane(entity, isActive, form, table)" th:id="${'nav-' + entity}"
+<div th:fragment="pane(entity, isActive, form)" th:id="${'nav-' + entity}"
 	th:class="${isActive} ? 'tab-pane fade show active' : 'tab-pane fade'"
 	role="tabpanel" th:aria-labelledby="${'nav-' + entity + '-tab'}">
 

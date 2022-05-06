@@ -1,10 +1,13 @@
 package com.usta.cafesua.models.services;
 
 
+import com.usta.cafesua.entities.Role;
 import com.usta.cafesua.entities.UserCafesua;
 import com.usta.cafesua.models.dao.IUserDao;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,13 +17,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class UserServiceImplement implements IUser, UserDetailsService {
 
-    private IUserDao iUserDao;
+    private final IUserDao iUserDao;
 
     @Override
     @Transactional
@@ -47,10 +52,16 @@ public class UserServiceImplement implements IUser, UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserCafesua user = iUserDao.findByUsername(username);
 
-        List<GrantedAuthority> roles = new ArrayList<>();
-        roles.add(new SimpleGrantedAuthority("ADMIN"));
+        return new User(user.getUsername(), user.getPassword(), getAuthorities(user));
+    }
 
-        return new User(user.getUsername(), user.getPassword(), roles);
+    private static Collection<? extends GrantedAuthority> getAuthorities(UserCafesua user)
+    {
+        String[] userRoles = user.getRoles()
+                .stream()
+                .map(Role::getName)
+                .toArray(String[]::new);
+        return AuthorityUtils.createAuthorityList(userRoles);
     }
 
 }

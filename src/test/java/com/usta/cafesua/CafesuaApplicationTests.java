@@ -21,7 +21,7 @@ class CafesuaApplicationTests {
     @Test
     void contextLoads() {
         UserCafesua userCafesua=new UserCafesua();
-        userCafesua.setUsername("code");
+        userCafesua.setUsername("base");
         userCafesua.setPassword(encoder.encode("134"));
         repo.saveUser(userCafesua);
     }

@@ -1,7 +1,7 @@
 <button th:fragment="button(entity, text, isActive)"
 	th:class="${isActive} ? 'nav-link active' : 'nav-link'"
 	th:aria-selected="${isActive} ? 'true' : 'false'" th:text="${text}"
-	th:id="${'nav-' entity + '-tab'}" th:value="${entity + '-form'}" th:data-bs-target="${'#nav-' + entity}"
+	th:id="${'nav-'+ entity + '-tab'}" th:value="${entity + '-form'}" th:data-bs-target="${'#nav-' + entity}"
 	th:aria-controls="${'nav-' + entity}" type="button" data-bs-toggle="tab"
 	role="tab">
 </button>
