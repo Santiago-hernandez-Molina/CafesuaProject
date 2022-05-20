@@ -37,10 +37,12 @@ public class Place implements Serializable {
     @Column(name = "description")
     private String description;
 
+
     @ManyToOne()
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     @JoinColumn(name = "type_id", referencedColumnName="id")
     private KindOfPlace kindOfPlace;
+
 
     @NotNull
     @Column(name = "bag_capacity")
