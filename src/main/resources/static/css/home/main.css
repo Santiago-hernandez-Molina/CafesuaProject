@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@800&display=swap');
+
+html, body {
+    margin: 0;
+    height: 100%;
+    background-color: #372C2D;
+}
+
+@keyframes barsSlideInFromBottom {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes imageFromBottom {
+    0% {
+        opacity: 30%;
+        top: 2em;
+    }
+
+    100% {
+        opacity: 100%;
+        top: 0;
+    }
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: transparent;
+  border-color: var(--bs-gray);
+}
+
+.form-control-dark:focus {
+  color: #fff;
+  background-color: transparent;
+  border-color: #fff;
+  box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+}
+
+.background {
+    right: 2em;
+}
+
+.bar-animated {
+    animation: 1s ease-in 0s 1 barsSlideInFromBottom;
+    width: 0.1em;
+    margin: 0 0.2em;
+    background-color: #DE9E48;
+}
+
+.bar {
+    width: 0.1em;
+    margin: 0 0.2em;
+    background-color: #DE9E48;
+}
+
+.title-text {
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+main img {
+    animation: 1s ease-out 0s 1 imageFromBottom;
+    transition: filter 0.5s ease-in-out;
+    position: relative;
+    
+    height: 85%;
+    filter: grayscale(100%);
+    object-fit: cover;
+}
+
+main img:hover {
+    filter: grayscale(0%);
+}
+
+.description-box {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(/assets/img/description-box-img.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 70%;
+    background-size: 100%;
+    width: 100%;
+}

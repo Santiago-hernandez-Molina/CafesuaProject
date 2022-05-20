@@ -14,26 +14,31 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.usta.cafesua.entities.Place;
 import com.usta.cafesua.models.services.IPlace;
+import com.usta.cafesua.models.services.IKindOfPlace;
 
 @Controller
 public class PlaceController {
 	
 	@Autowired
 	private IPlace iPlaceService;
+	@Autowired
+	private IKindOfPlace iKindOfPlaceService;
 	
 	@GetMapping(value = "/placeTemplate")
 	public String addPlace(Model model) {
 		model.addAttribute("place", new Place());
-		return "placeForm";
+		model.addAttribute("placeList", iPlaceService.findAll());
+		model.addAttribute("kindOfPlaceList", iKindOfPlaceService.findAll());
+		return "placeItems";
 	}
 	
 	@PostMapping(value="/placeTemplate")
 	public String savePlace(@Valid Place place, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-			return "placeForm";
+			return "placeItems";
 		}
 		iPlaceService.savePlace(place);
-		return "redirect:/";
+		return "redirect:/placeTemplate";
 	}
 
 	@PostMapping(value="/placeTemplate/{id}")
@@ -42,9 +47,9 @@ public class PlaceController {
 			place.setId(id);
 	    	iPlaceService.savePlace(place);
 	    	
-	    	return "redirect:/";
+	    	return "redirect:/placeTemplate";
 		} else {
-			return "palceForm";
+			return "placeItems";
 		}
 	}
 	
@@ -55,6 +60,6 @@ public class PlaceController {
             iPlaceService.deletePlace(id);
             flash.addFlashAttribute("success","place eliminated properly");
         }
-        return "redirect:/";
+        return "redirect:/placeTemplate";
     }
 }

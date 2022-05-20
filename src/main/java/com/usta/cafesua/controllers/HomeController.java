@@ -12,25 +12,9 @@ import com.usta.cafesua.models.services.IStatus;
 
 @Controller
 public class HomeController {
-	@Autowired
-    private IBag iBagService;
-	
-	@Autowired
-	private IStatus iStatusService;
-	
-	@Autowired
-	private IPlace iPlaceService;
-	
-	@Autowired
-	private IKindOfPlace iKindOfPlaceService;
 	
 	@GetMapping("/")
 	public String index(Model model) {
-		model.addAttribute("statusList", iStatusService.findAll());
-		model.addAttribute("placeList", iPlaceService.findAll());
-		model.addAttribute("kindOfPlaceList", iKindOfPlaceService.findAll());
-		model.addAttribute("bagList", iBagService.findAll());
-		model.addAttribute("statusList",iStatusService.findAll());
-		return "/fragments/content";
+		return "/home";
 	}
 }

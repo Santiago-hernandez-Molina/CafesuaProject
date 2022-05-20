@@ -14,16 +14,25 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.usta.cafesua.entities.Bag;
 import com.usta.cafesua.models.services.IBag;
+import com.usta.cafesua.models.services.IPlace;
+import com.usta.cafesua.models.services.IStatus;
 
 @Controller
 public class BagController {
 	@Autowired
 	private IBag iBagService;
+	@Autowired
+    private IPlace iPlaceService;
+	@Autowired
+    private IStatus iStatusService;
 
 	@GetMapping(value = "/bagTemplate")
 	public String addBag(Model model) {
 		model.addAttribute("bag", new Bag());
-		return "bagForm";
+		model.addAttribute("bagList", iBagService.findAll());
+		model.addAttribute("statusList", iStatusService.findAll());
+		model.addAttribute("placeList", iPlaceService.findAll());
+		return "bagItems";
 	}
 
 	@PostMapping(value = "/bagTemplate")
@@ -32,7 +41,7 @@ public class BagController {
 			return "bagForm";
 		}
 		iBagService.saveBag(bag);
-		return "redirect:/";
+		return "redirect:/bagTemplate";
 	}
 
 	@PostMapping(value="/bagTemplate/{id}")
@@ -41,7 +50,7 @@ public class BagController {
 			bag.setId(id);
 	    	iBagService.saveBag(bag);
 	    	
-	    	return "redirect:/";
+	    	return "redirect:/bagTemplate";
 		} else {
 			return "bagForm";
 		}
@@ -54,6 +63,6 @@ public class BagController {
             iBagService.deleteBag(id);
             flash.addFlashAttribute("succes","bag eliminated properly");
         }
-        return "redirect:/";
+        return "redirect:/bagTemplate";
     }
 }

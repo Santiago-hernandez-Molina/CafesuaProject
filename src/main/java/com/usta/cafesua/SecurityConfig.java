@@ -1,6 +1,7 @@
 package com.usta.cafesua;
 
 import com.usta.cafesua.models.services.UserServiceImplement;
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -31,9 +32,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity)throws Exception{
         httpSecurity
-                .authorizeRequests().antMatchers("/").hasRole("ADMIN")
-                .antMatchers("/resources/", "/webjars/","/assets/")
-                .permitAll()
+                .authorizeRequests()
+                .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                .antMatchers("/resources/", "/assets/**").permitAll()
+                .antMatchers("/").permitAll()
+                .antMatchers("/home").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -44,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login?logout")
+                .logoutSuccessUrl("/home")
                 .permitAll()
                 .and()
                 .exceptionHandling()

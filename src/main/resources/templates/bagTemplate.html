@@ -25,7 +25,7 @@
 	</select>
 </th:block>
 
-<table th:fragment="table" class="table align-middle accordion-body">
+<table th:fragment="table" id="bags-table" class="table align-middle text-white">
 	<thead>
 		<tr>
 			<th>#</th>
@@ -46,7 +46,7 @@
 					<a class="btn btn-sm btn-danger"
 						th:href="@{/deleteBag/} + ${bag.id}"> <i
 						class="bi bi-trash-fill"></i>
-					</a> <button type="button" data-bs-toggle="modal" th:data-bs-target="${'#modal-bag-' + bag.id}" class="btn btn-sm btn-success"> <i
+					</a> <button type="button" data-bs-toggle="modal" th:data-bs-target="${'#modal-bag-' + bag.id}" class="btn btn-sm btn-warning border-0" style="background-color: #DE9E48;"> <i
 						class="bi bi-pencil-square"></i>
 					</button>
 				</div>

@@ -1,0 +1,34 @@
+<header th:fragment="header" class="p-3 bg-transparent text-white">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-between">
+            <a class="d-flex align-items-center mb-2 my-lg-0 mb-lg-0 text-white text-decoration-none" th:href="@{/}">
+                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Cafesua">
+                    <use xlink:href="#cafesua"></use>
+                </svg>
+            </a>
+
+            <ul sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li class="nav-item"><a class="nav-link px-2 text-white-50" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link px-2 text-white" href="#">Dashboard</a></li>
+                <li class="nav-item dropdown">
+                    <a id="items-navbar-link" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Items</a>
+                    <ul class="dropdown-menu" aria-labelledby="items-navbar-link">
+                        <li><a class="dropdown-item" th:href="@{/bagTemplate}">Bags</a></li>
+                        <li><a class="dropdown-item" th:href="@{/placeTemplate}">Places</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link px-2 text-white" href="#">Workers</a></li>
+            </ul>
+
+            <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')" sec:authentication="principal.username" id="user-navbar-link" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="nav-link btn btn-light rounded-pill text-black">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="user-navbar-link">
+                <li><a class="dropdown-item" th:href="@{/logout}">Logout</a></li>
+            </ul>
+
+            <div sec:authorize="!isAuthenticated()" class="text-end">
+                <a th:href="@{/login}" class="btn btn-outline-light me-2">Login</a>
+                <button class="btn btn-warning me-2 border-0" type="button"
+                    style="background-color: #DE9E48;">Sign-up</button>
+            </div>
+        </div>
+</header>
