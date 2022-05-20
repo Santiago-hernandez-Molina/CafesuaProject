@@ -1,0 +1,58 @@
+<form th:fragment="form(id, name, description)" th:replace="fragments/formTemplate.html :: form(entity='status', id=${id}, fields=~{statusTemplate :: fields})">
+</form>
+
+<th:block th:fragment="fields">
+	<input id="name" field="*{name}" type="text" placeholder="Name"
+		th:value="${name != null} ? ${name} : ''" name="name"
+		class="form-control border-0 shadow-none" required>
+
+	<hr class="m-0" style="color: #82888f;">
+
+	<input id="description" field="*{description}" type="text"
+		placeholder="Description" name="description"
+		th:value="${description != null} ? ${description} : ''"
+		class="form-control border-0 shadow-none" required>
+</th:block>
+
+<table th:fragment="table" class="table align-middle accordion-body">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Opciones</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="status : ${statusList}">
+			<td th:text="${status.id}"></td>
+			<td th:text="${status.name}"></td>
+			<td th:text="${status.description}"></td>
+			<td>
+				<div class="btn-group">
+					<a class="btn btn-sm btn-danger" th:href="@{/deleteStatus/} + ${status.id}">
+						<i class="bi bi-trash-fill"></i>
+					</a>
+					<button type="button" data-bs-toggle="modal"
+						th:data-bs-target="${'#modal-status-' + status.id}"
+						class="btn btn-sm btn-success">
+						<i class="bi bi-pencil-square"></i>
+					</button>
+				</div>
+			</td>
+
+			<div
+				th:replace="/fragments/modalTemplate :: 
+				modal(
+					entity='status', 
+					id=${status.id}, 
+					form=~{statusTemplate :: form(
+						id=${status.id}, 
+						name=${status.name},
+						description=${status.description}
+                    )}
+                )">
+            </div>
+		</tr>
+	</tbody>
+</table>

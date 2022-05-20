@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+    <title>Cafesua</title>
+</head>
+
+<body>
+    <div class="mx-auto w-75 my-5">
+        <div class="border rounded p-0 d-flex flex-column">
+
+            <div class="bg-light p-2 rounded-top d-flex flex-row align-items-center border-bottom">
+                <nav class="my-0 ms-1 me-auto" role="tablist">
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button th:replace="fragments/buttonTemplate :: 
+                            button(
+                                entity='bag', 
+                                text='Bags', 
+                                isActive='true'
+                            )">
+                        </button>
+
+                        <button th:replace="fragments/buttonTemplate :: 
+							button(
+                                entity='place', 
+                                text='Places', 
+                                isActive='false'
+                            )">
+                        </button>
+
+                        <button th:replace="fragments/buttonTemplate :: 
+							button(
+                                entity='status', 
+                                text='Status', 
+                                isActive='false'
+                            )">
+                        </button>
+
+                        <button th:replace="fragments/buttonTemplate :: 
+							button(
+                                entity='kindOfPlace', 
+                                text='Kind of Place', 
+                                isActive='false'
+                            )">
+                        </button>
+                    </div>
+                </nav>
+                <p class="my-0">
+                    <input type="submit" value="Submit" id="submit-button" class="btn btn-primary"
+                        onclick="submitFunction()">
+                </p>
+            </div>
+
+            <div class="tab-content">
+                <div th:replace="fragments/paneTemplate :: pane(
+                        entity='bag', 
+                        isActive='true', 
+					    form=~{bagTemplate :: form(id=null, weight=null, status=null, place=null)}
+                    )">
+                </div>
+
+                <div th:replace="fragments/paneTemplate :: pane(
+                        entity='place', 
+                        isActive='false', 
+                        form=~{placeTemplate :: form(id=null, description=null, bagCapacity=null, kindOfPlace=null)}
+                    )">
+                </div>
+
+                <div th:replace="fragments/paneTemplate :: pane(
+                        entity='status', 
+                        isActive='false', 
+                        form=~{statusTemplate :: form(id=null, name=null, description=null)}
+                    )">
+                </div>
+
+                <div th:replace="fragments/paneTemplate :: pane(
+                        entity='kindOfPlace', 
+                        isActive='false', 
+                        form=~{kindOfPlaceTemplate :: form(id=null, name=null, description=null)}
+                    )">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+    <!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+     -->
+</body>
+
+<script type="text/javascript" th:src="@{/js/buttonForm.js}"></script>
+
+</html>

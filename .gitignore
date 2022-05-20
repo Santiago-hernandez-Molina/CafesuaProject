@@ -14,12 +14,13 @@ gradle-app.setting
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
 
 *.iml
+*.eml
 
 ## Directory-based project format:
 .idea/
 # if you remove the above rule, at least ignore the following:
 
-# User-specific stuff:
+# UserCafesua-specific stuff:
 # .idea/workspace.xml
 # .idea/tasks.xml
 # .idea/dictionaries
@@ -71,6 +72,8 @@ tmp/
 local.properties
 .settings/
 .loadpath
+
+Cafesua.userlibraries
 
 # Eclipse Core
 .project

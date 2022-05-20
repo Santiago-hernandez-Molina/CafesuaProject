@@ -1,0 +1,56 @@
+<form th:fragment="form(id, name, description)" th:replace="fragments/formTemplate.html :: form(entity='kindOfPlace', id=${id}, fields=~{kindOfPlaceTemplate :: fields})">
+</form>
+
+<th:block th:fragment="fields">
+	<input id="name" field="*{name}" type="text"
+		th:value="${name != null} ? ${name} : ''" placeholder="Name"
+		name="name" class="form-control border-0 shadow-none" required>
+
+	<hr class="m-0" style="color: #82888f;">
+
+	<input id="description" field="*{description}" type="text"
+		th:value="${description != null} ? ${description} : ''"
+		placeholder="Description" name="description"
+		class="form-control border-0 shadow-none" required>
+</th:block>
+
+<table th:fragment="table" class="table align-middle accordion-body">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Options</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="kindOfPlace : ${kindOfPlaceList}">
+			<td th:text="${kindOfPlace.id}"></td>
+			<td th:text="${kindOfPlace.name}"></td>
+			<td th:text="${kindOfPlace.description}"></td>
+			<td>
+				<div class="btn-group">
+					<a class="btn btn-sm btn-danger" th:href="@{/deleteKindOfPlace/} + ${kindOfPlace.id}"> 
+						<i class="bi bi-trash-fill"></i>
+					</a> 
+					<button class="btn btn-sm btn-success" type="button" data-bs-toggle="modal" th:data-bs-target="${'#modal-kindOfPlace-' + kindOfPlace.id}">
+						<i class="bi bi-pencil-square"></i>
+					</button>
+				</div>
+			</td>
+
+			<div
+				th:replace="/fragments/modalTemplate :: 
+				modal(
+					entity='kindOfPlace', 
+					id=${kindOfPlace.id}, 
+					form=~{kindOfPlaceTemplate :: form(
+						id=${kindOfPlace.id}, 
+						name=${kindOfPlace.name},
+						description=${kindOfPlace.description}
+                    )}
+                )">
+            </div>
+		</tr>
+	</tbody>
+</table>

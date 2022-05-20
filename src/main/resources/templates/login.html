@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/login/main.css}">
+
+    <title>Login - Cafesua</title>
+  </head>
+  <body class="h-100 w-100 m-0 text-center">
+    <svg style="display: none;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <symbol id="cafesua" viewBox="0 0 229 229" enable-background="new 0 0 229 229">
+            <path style="stroke-width:1.0015748;stroke-miterlimit:4;stroke-dasharray:none;fill:#ffffff;fill-opacity:1"
+                d="m155.593,.687c-35.02,0-64.348,29.25-71.384,68.127-19.696,2.14-39.828,11.473-56.029,27.674-33.581,33.581-37.745,84.057-9.282,112.52 12.693,12.694 29.765,18.898 47.764,18.898 22.36,0 46.151-9.576 64.756-28.181 8.185-8.185 14.603-17.376 19.241-27.005 1.633,0.129 3.275,0.219 4.935,0.219 40.252,0 73-38.636 73-86.126s-32.749-86.126-73.001-86.126zm-20.928,37.121c-0.045,1.131-0.076,2.287-0.076,3.499 0,16.03 4.129,24.738 7.446,31.735 2.644,5.576 4.554,9.605 4.554,18.885 0,9.285-1.91,13.316-4.555,18.895-2.829,5.968-6.239,13.198-7.184,25.136-13.257-9.571-22.257-28.009-22.257-49.144 1.42109e-14-21.036 8.918-39.396 22.072-49.006zm-85.272,79.893c10.079-10.08 22.185-16.381 33.952-18.628 0.641,5.28 1.695,10.402 3.112,15.33-3.31,5.437-5.017,10.203-6.508,14.38-2.073,5.813-3.571,10.012-10.133,16.573-6.566,6.566-10.768,8.065-16.583,10.141-6.22,2.219-13.743,4.92-22.853,12.694-2.606-16.142 4.068-35.544 19.013-50.49zm60.812,60.812c-19.032,19.031-45.29,24.652-62.841,14.768 6.206-6.039 10.328-7.521 15.952-9.529 7.295-2.604 16.374-5.843 27.714-17.183 6.937-6.937 10.835-13.025 13.417-18.38 5.135,5.957 11.012,11.017 17.449,14.987-3.044,5.397-6.947,10.592-11.691,15.337zm54.396-36.822c0.118-8.66 1.984-12.622 4.542-18.019 3.317-6.999 7.446-15.709 7.446-31.745 0-16.031-4.129-24.739-7.446-31.736-2.644-5.576-4.554-9.604-4.554-18.884 0-3.748 0.316-6.632 0.862-9.115 18.973,5.834 33.142,28.101 33.142,54.621 0,26.917-14.593,49.458-33.992,54.878z" />
+        </symbol>
+    </svg>
+
+      <main class="form-signin">
+          <form th:action="@{/login}" method="post">
+                <svg class="mb-4" width="72" height="57" role="img" aria-label="Cafesua">
+                    <use xlink:href="#cafesua"></use>
+                </svg>
+                <h1 class="h3 mb-3 fw-normal">Please Sign In</h1>
+                
+                <div class="alert alert-danger" th:if="${param.error}">
+                    <span>Invalid Username or Password</span>
+                </div>
+
+                <div class="form-floating">
+                    <input type="text" name="username" class="form-control form-control-dark" id="floatingInput" placeholder="Username">
+                    <label for="floatingInput">Username</label>
+                </div>
+
+                <div class="form-floating">
+                    <input id="floatingPassword" name="password" class="form-control form-control-dark" type="password" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+
+                <button class="w-100 btn btn-lg btn-warning border-0" type="submit" style="background-color: #DE9E48;">Sign In</button>
+          </form>
+      </main>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

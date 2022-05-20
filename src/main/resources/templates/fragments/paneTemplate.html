@@ -1,0 +1,23 @@
+<div th:fragment="pane(entity, isActive, form)" th:id="${'nav-' + entity}"
+	th:class="${isActive} ? 'tab-pane fade show active' : 'tab-pane fade'"
+	role="tabpanel" th:aria-labelledby="${'nav-' + entity + '-tab'}">
+
+	<form th:replace="${form}"></form>
+
+	<div class="accordion accordion-flush" id="accordionFlushExample">
+
+		<h2 class="accordion-header" id="flush-headingOne">
+			<button class="accordion-button collapsed bg-light border-top" type="button"
+				data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+				aria-expanded="false" aria-controls="flush-collapseOne">Data</button>
+		</h2>
+
+		<div
+			class="table-responsive text-center accordion-collapse collapse border-top-0"
+			id="flush-collapseOne" aria-labelledby="flush-headingOne"
+			data-bs-parent="#accordionFlushExample">
+
+            <table th:replace="~{${entity + 'Template'} :: table}"></table>
+		</div>
+	</div>
+</div>
