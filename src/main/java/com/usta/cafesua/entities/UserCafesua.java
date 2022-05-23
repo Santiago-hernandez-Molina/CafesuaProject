@@ -1,10 +1,7 @@
 package com.usta.cafesua.entities;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -15,9 +12,15 @@ import java.util.List;
 @Getter
 @Table(name = "users")
 @NoArgsConstructor
-@AllArgsConstructor
+@ToString
 public class UserCafesua {
     private static final long serialVersionUID = 1L;
+
+    public UserCafesua(String username, String password, List<Role> roles) {
+        this.username = username;
+        this.password = password;
+        this.roles = roles;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
