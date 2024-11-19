@@ -8,6 +8,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+
+import java.io.Serial;
 import java.util.List;
 
 @Entity
@@ -17,6 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserCafesua {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id

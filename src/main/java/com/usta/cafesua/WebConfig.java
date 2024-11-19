@@ -20,5 +20,4 @@ public class WebConfig implements WebMvcConfigurer {
     public SpringSecurityDialect securityDialect(){
         return new SpringSecurityDialect();
     }
-
 }

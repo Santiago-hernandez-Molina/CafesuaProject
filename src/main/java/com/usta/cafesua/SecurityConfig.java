@@ -32,26 +32,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity)throws Exception{
         httpSecurity
-                .authorizeRequests()
-                .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                .antMatchers("/resources/", "/assets/**").permitAll()
-                .antMatchers("/").permitAll()
-                .antMatchers("/home").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/home",true)
-                .failureUrl("/login?error")
-                .permitAll()
-                .and()
-                .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/home")
-                .permitAll()
-                .and()
-                .exceptionHandling()
-                .accessDeniedPage("/accessDenied");
+            .authorizeRequests()
+            .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+            .antMatchers("/resources/", "/assets/**").permitAll()
+            .antMatchers("/").permitAll()
+            .antMatchers("/home").permitAll()
+            .anyRequest().authenticated()
+            .and()
+            .formLogin()
+            .loginPage("/login")
+            .defaultSuccessUrl("/home",true)
+            .failureUrl("/login?error")
+            .permitAll()
+            .and()
+            .logout()
+            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+            .logoutSuccessUrl("/home")
+            .permitAll()
+            .and()
+            .exceptionHandling()
+            .accessDeniedPage("/accessDenied");
     }
 
 }

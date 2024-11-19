@@ -19,50 +19,48 @@ import com.usta.cafesua.models.services.IStatus;
 
 @Controller
 public class BagController {
-	@Autowired
-	private IBag iBagService;
-	@Autowired
-    private IPlace iPlaceService;
-	@Autowired
-    private IStatus iStatusService;
+  @Autowired private IBag iBagService;
+  @Autowired private IPlace iPlaceService;
+  @Autowired private IStatus iStatusService;
 
-	@GetMapping(value = "/bagTemplate")
-	public String addBag(Model model) {
-		model.addAttribute("bag", new Bag());
-		model.addAttribute("bagList", iBagService.findAll());
-		model.addAttribute("statusList", iStatusService.findAll());
-		model.addAttribute("placeList", iPlaceService.findAll());
-		return "bagItems";
-	}
+  @GetMapping(value = "/bagTemplate")
+  public String addBag(Model model) {
+    model.addAttribute("bag", new Bag());
+    model.addAttribute("bagList", iBagService.findAll());
+    model.addAttribute("statusList", iStatusService.findAll());
+    model.addAttribute("placeList", iPlaceService.findAll());
+    return "bagItems";
+  }
 
-	@PostMapping(value = "/bagTemplate")
-	public String saveBag(@Valid Bag bag, BindingResult result, Model model) {
-		if (result.hasErrors()) {
-			return "bagForm";
-		}
-		iBagService.saveBag(bag);
-		return "redirect:/bagTemplate";
-	}
-
-	@PostMapping(value="/bagTemplate/{id}")
-    public String updateBag(@PathVariable(value="id") Long id, @Valid Bag bag, BindingResult result, Model model) {
-		if (iBagService.findById(id) != null) {
-			bag.setId(id);
-	    	iBagService.saveBag(bag);
-	    	
-	    	return "redirect:/bagTemplate";
-		} else {
-			return "bagForm";
-		}
-	}
-
-	@RequestMapping(value="/deleteBag/{id}")
-    public String deleteBag(@PathVariable(value ="id") Long id , RedirectAttributes flash){
-
-        if (id>0){
-            iBagService.deleteBag(id);
-            flash.addFlashAttribute("succes","bag eliminated properly");
-        }
-        return "redirect:/bagTemplate";
+  @PostMapping(value = "/bagTemplate")
+  public String saveBag(@Valid Bag bag, BindingResult result, Model model) {
+    if (result.hasErrors()) {
+      return "bagForm";
     }
+    iBagService.saveBag(bag);
+    return "redirect:/bagTemplate";
+  }
+
+  @PostMapping(value = "/bagTemplate/{id}")
+  public String updateBag(
+      @PathVariable(value = "id") Long id, @Valid Bag bag, BindingResult result, Model model) {
+    if (iBagService.findById(id) != null) {
+      bag.setId(id);
+      iBagService.saveBag(bag);
+
+      return "redirect:/bagTemplate";
+    } else {
+      return "bagForm";
+    }
+  }
+
+  @RequestMapping(value = "/deleteBag/{id}")
+  public String deleteBag(@PathVariable(value = "id") Long id, RedirectAttributes flash) {
+
+    if (id > 0) {
+      iBagService.deleteBag(id);
+      flash.addFlashAttribute("succes", "bag eliminated properly");
+    }
+    return "redirect:/bagTemplate";
+  }
 }
